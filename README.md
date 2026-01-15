@@ -1,3 +1,3 @@
 # ahmad2wo.github.io
 
-I am editing the desktop file as a test.
+This is Ahmad Idris and I have set up my ITIS 3135 Github repository at 4:36.
