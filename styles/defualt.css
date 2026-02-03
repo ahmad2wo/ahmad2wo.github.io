@@ -1,0 +1,50 @@
+/* PERSONAL SITE default.css */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7fb;
+  color: #1b1b1b;
+  line-height: 1.6;
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #2b4c7e;
+  margin-top: 0.6em;
+  margin-bottom: 0.3em;
+}
+
+a {
+  color: #2b4c7e;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+header, footer {
+  background: #e7ecf6;
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+
+ul, ol {
+  padding-left: 22px;
+}
+li {
+  margin-bottom: 6px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+p {
+  margin: 10px 0;
+}
