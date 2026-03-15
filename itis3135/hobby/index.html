@@ -1,329 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Hobby Site | Ahmad Idris</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #1b1f3b;
-            color: #f4f1de;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Hobby Site | Ahmad Idris</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 
-        header {
-            background-color: #3d405b;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 4px solid #e07a5f;
-        }
+<style>
 
-        h1 {
-            margin: 0;
-            color: #f2cc8f;
-        }
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background-color:#1b1f3b;
+color:#f4f1de;
+}
 
-        nav {
-            margin-top: 15px;
-        }
+header{
+background-color:#3d405b;
+padding:20px;
+text-align:center;
+border-bottom:4px solid #e07a5f;
+}
 
-        nav a {
-            color: #f4f1de;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 8px;
-        }
+h1{
+margin:0;
+color:#f2cc8f;
+}
 
-        nav a:hover {
-            color: #f2cc8f;
-        }
+nav{
+margin-top:15px;
+}
 
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+nav a{
+color:#f4f1de;
+text-decoration:none;
+font-weight:bold;
+margin:0 8px;
+}
 
-        section {
-            display: none;
-            background-color: #2a2f52;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
+nav a:hover{
+color:#f2cc8f;
+}
 
-        section.active {
-            display: block;
-        }
+main{
+max-width:1000px;
+margin:0 auto;
+padding:20px;
+}
 
-        h2 {
-            color: #f2cc8f;
-            border-bottom: 2px solid #e07a5f;
-            padding-bottom: 8px;
-        }
+section{
+display:none;
+background-color:#2a2f52;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+}
 
-        p, li, td, th, label {
-            line-height: 1.6;
-        }
+section.active{
+display:block;
+}
 
-        figure {
-            margin: 20px auto;
-            text-align: center;
-        }
+h2{
+color:#f2cc8f;
+border-bottom:2px solid #e07a5f;
+padding-bottom:8px;
+}
 
-        figure img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-            border: 3px solid #81b29a;
-        }
+p, li, td, th, label{
+line-height:1.6;
+}
 
-        figcaption {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #f2cc8f;
-        }
+figure{
+margin:20px auto;
+text-align:center;
+}
 
-        .prompt {
-            font-style: italic;
-            color: #d8d4c8;
-            text-align: center;
-            max-width: 700px;
-            margin: 10px auto 20px auto;
-        }
+figure img{
+width:100%;
+max-width:500px;
+height:auto;
+border-radius:10px;
+border:3px solid #81b29a;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background-color: #3d405b;
-        }
+figcaption{
+margin-top:10px;
+font-weight:bold;
+color:#f2cc8f;
+}
 
-        th, td {
-            border: 1px solid #81b29a;
-            padding: 10px;
-            text-align: left;
-        }
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+background-color:#3d405b;
+}
 
-        th {
-            background-color: #e07a5f;
-            color: #ffffff;
-        }
+th, td{
+border:1px solid #81b29a;
+padding:10px;
+text-align:left;
+}
 
-        form {
-            background-color: #3d405b;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
+th{
+background-color:#e07a5f;
+color:#ffffff;
+}
 
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
+form{
+background-color:#3d405b;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+}
 
-        input[type="submit"] {
-            background-color: #e07a5f;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
+input, select, textarea{
+width:100%;
+padding:10px;
+margin-top:6px;
+margin-bottom:15px;
+border:none;
+border-radius:6px;
+font-size:1rem;
+}
 
-        input[type="submit"]:hover {
-            background-color: #d65d3f;
-        }
+input[type="submit"]{
+background-color:#e07a5f;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
 
-        ul {
-            padding-left: 20px;
-        }
+input[type="submit"]:hover{
+background-color:#d65d3f;
+}
 
-        footer {
-            background-color: #3d405b;
-            text-align: center;
-            padding: 20px;
-            border-top: 4px solid #e07a5f;
-        }
+ul{
+padding-left:20px;
+}
 
-        footer a {
-            color: #f2cc8f;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: bold;
-        }
+footer{
+background-color:#3d405b;
+text-align:center;
+padding:20px;
+border-top:4px solid #e07a5f;
+}
 
-        footer a:hover {
-            color: #ffffff;
-        }
+footer a{
+color:#f2cc8f;
+text-decoration:none;
+margin:0 8px;
+font-weight:bold;
+}
 
-        .validator-links {
-            margin-top: 12px;
-        }
-    </style>
+footer a:hover{
+color:#ffffff;
+}
+
+.validator-links{
+margin-top:12px;
+}
+
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Anime</h1>
-        <nav>
-            <a href="#" onclick="showSection('what')">What</a> ✦
-            <a href="#" onclick="showSection('who')">Who</a> ✦
-            <a href="#" onclick="showSection('when')">When</a> ✦
-            <a href="#" onclick="showSection('where')">Where</a> ✦
-            <a href="#" onclick="showSection('how')">How</a> ✦
-            <a href="#" onclick="showSection('why')">Why</a> ✦
-            <a href="#" onclick="showSection('prompts')">AI Prompts</a>
-        </nav>
-    </header>
 
-    <main>
-        <section id="what" class="active">
-            <h2>What is Anime?</h2>
-            <p>Anime is a style of animated entertainment that started in Japan and has become popular all around the world. It includes many different genres such as action, romance, comedy, fantasy, and sports. One reason I enjoy anime is because there is always something new to watch and every series has its own story and art style.</p>
-            <p>For me, anime is more than just watching shows. It is a hobby that helps me relax, have fun, and even get inspired creatively. Some anime focus on friendship, hard work, and growth, which makes them enjoyable and meaningful at the same time.</p>
-            <figure>
-                <img src="images/anime-home.jpg" alt="Anime-inspired living room with posters and a TV setup">
-                <figcaption>Anime as a relaxing and creative hobby</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A cozy anime-themed room with posters, soft lighting, manga on shelves, and a TV showing a colorful anime scene, digital art style.</p>
-        </section>
+<header>
 
-        <section id="who">
-            <h2>Who Enjoys Anime?</h2>
-            <p>Anime is enjoyed by many different kinds of people. Kids, teens, and adults can all find anime series they like because there are so many different genres and topics. Some people enjoy anime for entertainment, while others enjoy the artwork, music, or life lessons found in the stories.</p>
-            <ul>
-                <li>Students who want something fun to watch after school</li>
-                <li>Artists who like character design and animation</li>
-                <li>People who enjoy deep stories and strong character development</li>
-            </ul>
-            <figure>
-                <img src="images/anime-who.jpg" alt="Group of anime fans enjoying a show together">
-                <figcaption>Anime brings many kinds of people together</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A friendly group of anime fans sitting together in a colorful room watching anime and smiling, digital art style.</p>
-        </section>
+<h1>Anime</h1>
 
-        <section id="when">
-            <h2>When is the Best Time for Anime?</h2>
-            <p>The best time to enjoy anime depends on the person. Many people watch anime at night after finishing homework, work, or daily responsibilities. Watching a few episodes can be a great way to relax and unwind after a long day.</p>
-            <table>
-                <tr>
-                    <th>Time</th>
-                    <th>Why It Works Well</th>
-                </tr>
-                <tr>
-                    <td>After school</td>
-                    <td>A good way to relax and take a break</td>
-                </tr>
-                <tr>
-                    <td>Weekend afternoons</td>
-                    <td>Good for binge-watching longer series</td>
-                </tr>
-                <tr>
-                    <td>At night</td>
-                    <td>Peaceful time to focus on the story</td>
-                </tr>
-            </table>
-            <figure>
-                <img src="images/anime-when.jpg" alt="Nighttime anime viewing setup with snacks and warm lighting">
-                <figcaption>A calm evening is a great time to watch anime</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A warm nighttime anime watching setup with snacks, soft lights, and a peaceful room, digital art style.</p>
-        </section>
+<nav>
+<a href="#" onclick="showSection('what')">What</a> ✦
+<a href="#" onclick="showSection('who')">Who</a> ✦
+<a href="#" onclick="showSection('when')">When</a> ✦
+<a href="#" onclick="showSection('where')">Where</a> ✦
+<a href="#" onclick="showSection('how')">How</a> ✦
+<a href="#" onclick="showSection('why')">Why</a>
+</nav>
 
-        <section id="where">
-            <h2>Where Can You Enjoy Anime?</h2>
-            <p>You can enjoy anime in many places. Most people watch it at home on a laptop, TV, tablet, or phone. Home is a good place because it is comfortable and quiet. Some people also enjoy anime at conventions, with friends, or in clubs where they can talk about their favorite shows together.</p>
-            <p>Streaming platforms make anime easy to access from almost anywhere. This makes the hobby flexible and convenient for different lifestyles.</p>
-            <figure>
-                <img src="images/anime-where.jpg" alt="Comfortable home setup for watching anime">
-                <figcaption>Anime can be enjoyed at home or with others</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A modern home entertainment setup for watching anime with a comfortable chair and colorful digital art atmosphere.</p>
-        </section>
+</header>
 
-        <section id="how">
-            <h2>How Do You Get Started with Anime?</h2>
-            <p>Getting started with anime is simple. First, choose a genre that sounds interesting to you. If you like action, adventure, romance, or comedy, there are many good beginner shows in each category. Then choose a streaming service or website that legally offers anime to watch.</p>
-            <form>
-                <label for="genre">Favorite anime genre:</label>
-                <select id="genre" name="genre">
-                    <option>Action</option>
-                    <option>Comedy</option>
-                    <option>Romance</option>
-                    <option>Fantasy</option>
-                    <option>Sports</option>
-                </select>
+<main>
 
-                <label for="show">First anime recommendation:</label>
-                <input type="text" id="show" name="show" placeholder="Type an anime title">
+<section id="what" class="active">
 
-                <label for="reason">Why do you want to watch anime?</label>
-                <textarea id="reason" name="reason" rows="4" placeholder="Write your reason here"></textarea>
+<h2>What is Anime?</h2>
 
-                <input type="submit" value="Submit">
-            </form>
-            <figure>
-                <img src="images/anime-how.jpg" alt="Beginner choosing anime on a screen">
-                <figcaption>Starting anime is easy with the right genre</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A beginner browsing anime choices on a bright screen with colorful category icons, digital art style.</p>
-        </section>
+<p>Anime is a style of animated entertainment that started in Japan and has become popular around the world. It includes many different genres such as action, romance, comedy, fantasy, and sports. One reason I enjoy anime is because there is always something new to watch and every series has its own story and art style.</p>
 
-        <section id="why">
-            <h2>Why I Enjoy Anime</h2>
-            <p>I enjoy anime because it is entertaining, creative, and full of variety. Some series are funny, some are emotional, and others are exciting. That variety makes the hobby interesting because I can always find something that matches my mood.</p>
-            <p>Anime also inspires creativity. The animation styles, world-building, music, and storytelling make it more than simple entertainment. It can motivate people to draw, edit videos, discuss stories, or even learn more about Japanese culture and media.</p>
-            <figure>
-                <img src="images/anime-why.jpg" alt="Inspired anime fan working creatively at a desk">
-                <figcaption>Anime inspires fun, creativity, and imagination</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: An inspired anime fan at a desk creating content with sketches, bright colors, and anime posters in a digital art style.</p>
-        </section>
+<p>For me, anime is more than just watching shows. It is a hobby that helps me relax, have fun, and even get inspired creatively. Some anime focus on friendship, hard work, and personal growth which makes them enjoyable and meaningful at the same time.</p>
 
-        <section id="prompts">
-            <h2>AI Prompts Used</h2>
-            <p>AI model used: ChatGPT</p>
-            <ul>
-                <li>Create a cozy anime-themed room with posters, soft lighting, manga on shelves, and a TV showing a colorful anime scene, digital art style.</li>
-                <li>Create a friendly group of anime fans sitting together in a colorful room watching anime and smiling, digital art style.</li>
-                <li>Create a warm nighttime anime watching setup with snacks, soft lights, and a peaceful room, digital art style.</li>
-                <li>Create a modern home entertainment setup for watching anime with a comfortable chair and colorful digital art atmosphere.</li>
-                <li>Create a beginner browsing anime choices on a bright screen with colorful category icons, digital art style.</li>
-                <li>Create an inspired anime fan at a desk creating content with sketches, bright colors, and anime posters in a digital art style.</li>
-            </ul>
-            <p>I also used AI to help organize the structure of the website, section ideas, and beginner-level wording for the content.</p>
-            <figure>
-                <img src="images/anime-home.jpg" alt="Anime hobby example image">
-                <figcaption>Example of the visual style used across the site</figcaption>
-            </figure>
-            <p class="prompt">AI image prompt: A cozy anime-themed room with posters, soft lighting, manga on shelves, and a TV showing a colorful anime scene, digital art style.</p>
-        </section>
-    </main>
+<figure>
+<img src="images/anime-home.jpg" alt="Anime watching setup">
+<figcaption>Anime as a relaxing and creative hobby</figcaption>
+</figure>
 
-    <footer>
-        <p>Designed by <a href="https://webpages.charlotte.edu/aidris1/itis3135/ahmadidriswebstudio.com/" target="_blank">Ahmad Idris Web Studio</a></p>
-        <div class="validator-links">
-            <a href="https://validator.w3.org/nu/?doc=https://webpages.charlotte.edu/aidris1/itis3135/hobby/">HTML Validator</a>
-            <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://webpages.charlotte.edu/aidris1/itis3135/hobby/&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">CSS Validator</a>
-            <a href="https://wave.webaim.org/report#/https://webpages.charlotte.edu/aidris1/itis3135/hobby/">Accessibility Check</a>
-        </div>
-    </footer>
+</section>
 
-    <script>
-        function showSection(sectionId) {
-            let sections = document.querySelectorAll("main section");
-            sections.forEach(function(section) {
-                section.classList.remove("active");
-            });
-            document.getElementById(sectionId).classList.add("active");
-        }
-    </script>
+<section id="who">
+
+<h2>Who Enjoys Anime?</h2>
+
+<p>Anime is enjoyed by many different kinds of people. Kids, teens, and adults can all find anime series they like because there are many genres and topics. Some people enjoy anime for entertainment while others enjoy the art style and storytelling.</p>
+
+<ul>
+<li>Students who want something fun to watch</li>
+<li>Artists who like animation and character design</li>
+<li>People who enjoy creative storytelling</li>
+</ul>
+
+<figure>
+<img src="images/anime-who.jpg" alt="Anime fans watching together">
+<figcaption>Anime brings many people together</figcaption>
+</figure>
+
+</section>
+
+<section id="when">
+
+<h2>When is the Best Time for Anime?</h2>
+
+<p>The best time to enjoy anime depends on the person. Many people watch anime at night after finishing homework or work. Watching a few episodes can be a good way to relax after a long day.</p>
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Why It Works Well</th>
+</tr>
+
+<tr>
+<td>After school</td>
+<td>A good way to relax and take a break</td>
+</tr>
+
+<tr>
+<td>Weekend afternoons</td>
+<td>Good for watching several episodes</td>
+</tr>
+
+<tr>
+<td>At night</td>
+<td>A calm time to focus on the story</td>
+</tr>
+
+</table>
+
+<figure>
+<img src="images/anime-when.jpg" alt="Watching anime at night">
+<figcaption>Evenings are a popular time to watch anime</figcaption>
+</figure>
+
+</section>
+
+<section id="where">
+
+<h2>Where Can You Watch Anime?</h2>
+
+<p>Anime can be watched in many places. Most people watch it at home on a laptop, TV, tablet, or phone. Home is a comfortable place where people can relax and enjoy the show.</p>
+
+<p>Some people also watch anime with friends or at conventions where fans gather to talk about their favorite series.</p>
+
+<figure>
+<img src="images/anime-where.jpg" alt="Anime watching setup">
+<figcaption>Anime can be watched almost anywhere</figcaption>
+</figure>
+
+</section>
+
+<section id="how">
+
+<h2>How Do You Get Started with Anime?</h2>
+
+<p>Getting started with anime is simple. First choose a genre that sounds interesting such as action, fantasy, romance, or comedy. Then find a streaming platform that offers anime series.</p>
+
+<form>
+
+<label for="genre">Favorite anime genre:</label>
+
+<select id="genre">
+
+<option>Action</option>
+<option>Comedy</option>
+<option>Romance</option>
+<option>Fantasy</option>
+<option>Sports</option>
+
+</select>
+
+<label for="show">Anime recommendation:</label>
+
+<input type="text" id="show" placeholder="Enter an anime title">
+
+<label for="reason">Why do you want to watch anime?</label>
+
+<textarea id="reason" rows="4"></textarea>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<figure>
+<img src="images/anime-how.jpg" alt="Choosing anime">
+<figcaption>Choosing an anime series to start</figcaption>
+</figure>
+
+</section>
+
+<section id="why">
+
+<h2>Why I Enjoy Anime</h2>
+
+<p>I enjoy anime because it is entertaining, creative, and has many different types of stories. Some series are funny while others are emotional or action packed.</p>
+
+<p>The art styles and storytelling make anime unique. It can also inspire creativity and introduce viewers to new cultures and ideas.</p>
+
+<figure>
+<img src="images/anime-why.jpg" alt="Anime fan drawing">
+<figcaption>Anime inspires creativity and imagination</figcaption>
+</figure>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>Designed by 
+<a href="https://webpages.charlotte.edu/aidris1/itis3135/ahmadidriswebstudio.com/" target="_blank">
+Ahmad Idris Web Studio
+</a>
+</p>
+
+<div class="validator-links">
+
+<a href="https://validator.w3.org/nu/?doc=https://webpages.charlotte.edu/aidris1/itis3135/hobby/">
+HTML Validator
+</a>
+
+<a href="https://jigsaw.w3.org/css-validator/validator?uri=https://webpages.charlotte.edu/aidris1/itis3135/hobby/">
+CSS Validator
+</a>
+
+<a href="https://wave.webaim.org/report#/https://webpages.charlotte.edu/aidris1/itis3135/hobby/">
+Accessibility Check
+</a>
+
+</div>
+
+</footer>
+
+<script>
+
+function showSection(sectionId){
+
+let sections = document.querySelectorAll("main section");
+
+sections.forEach(function(section){
+section.classList.remove("active");
+});
+
+document.getElementById(sectionId).classList.add("active");
+
+}
+
+</script>
+
 </body>
 </html>
