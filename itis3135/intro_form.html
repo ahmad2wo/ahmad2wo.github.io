@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ahmad Idris | Introduction Form</title>
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+  <header>
+    <h1>Ahmad Idris's Niner ~ ITIS 3135</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="introduction.html">Introduction</a> |
+      <a href="intro_form.html">Intro Form</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
+
+    <form id="form">
+      <label>First Name:
+        <input type="text" id="firstName" value="Ahmad" required>
+      </label><br>
+
+      <label>Last Name:
+        <input type="text" id="lastName" value="Idris" required>
+      </label><br>
+
+      <label>Nickname:
+        <input type="text" id="nickname" placeholder="Optional">
+      </label><br>
+
+      <label>Personal Statement:
+        <textarea id="personal" required>I am a Computer Science student...</textarea>
+      </label><br>
+
+      <label>Image:
+        <input type="file" id="image">
+      </label><br>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+      <button type="button" id="clearBtn">Clear</button>
+      <button type="button" id="generateHTML">Generate HTML</button>
+      <button type="button" id="generateJSON">Generate JSON</button>
+    </form>
+
+    <section id="output"></section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Ahmad Idris</p>
+  </footer>
+
+  <script src="scripts/introduction.js"></script>
+  <script src="scripts/generate_html.js"></script>
+  <script src="scripts/generate_json.js"></script>
+</body>
+</html>
