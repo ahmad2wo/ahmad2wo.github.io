@@ -2,44 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahmad Idris | Introduction Form</title>
   <link rel="stylesheet" href="styles/default.css">
 </head>
-
 <body>
-  <header>
-    <h1>Ahmad Idris's Niner ~ ITIS 3135</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="introduction.html">Introduction</a> |
-      <a href="intro_form.html">Intro Form</a>
-    </nav>
-  </header>
+  <div data-include="/itis3135/components/header.html"></div>
 
   <main>
     <h2>Introduction Form</h2>
     <h3>Please submit the form below.</h3>
 
     <form id="form">
-      <label>First Name:
-        <input type="text" id="firstName" value="Ahmad" required>
-      </label><br>
+      <label for="firstName">First Name:</label><br>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        value="Ahmad"
+        placeholder="Enter your first name"
+        required
+      ><br><br>
 
-      <label>Last Name:
-        <input type="text" id="lastName" value="Idris" required>
-      </label><br>
+      <label for="lastName">Last Name:</label><br>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        value="Idris"
+        placeholder="Enter your last name"
+        required
+      ><br><br>
 
-      <label>Nickname:
-        <input type="text" id="nickname" placeholder="Optional">
-      </label><br>
+      <label for="nickname">Nickname/Preferred Name:</label><br>
+      <input
+        type="text"
+        id="nickname"
+        name="nickname"
+        placeholder="Optional"
+      ><br><br>
 
-      <label>Personal Statement:
-        <textarea id="personal" required>I am a Computer Science student...</textarea>
-      </label><br>
+      <label for="image">Picture:</label><br>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+      ><br><br>
 
-      <label>Image:
-        <input type="file" id="image">
-      </label><br>
+      <label for="imageCaption">Picture Caption:</label><br>
+      <input
+        type="text"
+        id="imageCaption"
+        name="imageCaption"
+        value="Skiing in the Swiss Alps."
+        placeholder="Enter picture caption"
+        required
+      ><br><br>
+
+      <label for="personal">Introduction Paragraph:</label><br>
+      <textarea
+        id="personal"
+        name="personal"
+        rows="5"
+        cols="60"
+        placeholder="Enter your introduction paragraph"
+        required
+      >I’m currently a junior attending UNC Charlotte studying Computer Science with a concentration in Cybersecurity. I am a motivated student with a strong interest in technology, problem solving, and continuous learning.</textarea><br><br>
+
+      <label for="personalBackground">Personal Background:</label><br>
+      <textarea
+        id="personalBackground"
+        name="personalBackground"
+        rows="4"
+        cols="60"
+        placeholder="Enter your personal background"
+        required
+      >I am originally from Seattle, Washington, and currently live in North Carolina. I am 18 years old and enjoy playing sports.</textarea><br><br>
+
+      <label for="professionalBackground">Professional Background:</label><br>
+      <textarea
+        id="professionalBackground"
+        name="professionalBackground"
+        rows="4"
+        cols="60"
+        placeholder="Enter your professional background"
+        required
+      >I have experience working in environments that require responsibility and strong communication.</textarea><br><br>
+
+      <label for="academicBackground">Academic Background:</label><br>
+      <textarea
+        id="academicBackground"
+        name="academicBackground"
+        rows="4"
+        cols="60"
+        placeholder="Enter your academic background"
+        required
+      >I am pursuing a degree in Computer Science with a concentration in Cybersecurity.</textarea><br><br>
+
+      <label for="subjectBackground">Background in Subject:</label><br>
+      <textarea
+        id="subjectBackground"
+        name="subjectBackground"
+        rows="4"
+        cols="60"
+        placeholder="Enter your background in this subject"
+        required
+      >I am developing foundational and intermediate skills in computing, programming, cybersecurity, databases, and systems.</textarea><br><br>
+
+      <label for="primaryComputer">Primary Work Computer &amp; Location:</label><br>
+      <textarea
+        id="primaryComputer"
+        name="primaryComputer"
+        rows="4"
+        cols="60"
+        placeholder="Enter your primary work computer and location"
+        required
+      >Apple MacBook laptop running macOS, primarily used at home.</textarea><br><br>
+
+      <label for="backupComputer">Backup Work Computer &amp; Location Plan:</label><br>
+      <textarea
+        id="backupComputer"
+        name="backupComputer"
+        rows="4"
+        cols="60"
+        placeholder="Enter your backup computer plan"
+        required
+      >University computer labs if my primary device is unavailable.</textarea><br><br>
+
+      <label for="funnyThing">Funny/Interesting Thing About Me:</label><br>
+      <textarea
+        id="funnyThing"
+        name="funnyThing"
+        rows="3"
+        cols="60"
+        placeholder="Optional"
+      >I am trilingual.</textarea><br><br>
+
+      <label for="shareMore">I'd Also Like to Share:</label><br>
+      <textarea
+        id="shareMore"
+        name="shareMore"
+        rows="3"
+        cols="60"
+        placeholder="Optional"
+      >I have traveled to 20 different countries by the age of 18.</textarea><br><br>
+
+      <h3>Current Courses</h3>
+
+      <label for="course1">Course 1:</label><br>
+      <input
+        type="text"
+        id="course1"
+        name="course1"
+        value="ITIS 3135 - Front End Web Application Development"
+        placeholder="Enter course 1"
+        required
+      ><br><br>
+
+      <label for="course2">Course 2:</label><br>
+      <input
+        type="text"
+        id="course2"
+        name="course2"
+        value="ITIS 3200 - Introduction to Information Security and Privacy"
+        placeholder="Enter course 2"
+        required
+      ><br><br>
+
+      <label for="course3">Course 3:</label><br>
+      <input
+        type="text"
+        id="course3"
+        name="course3"
+        value="ITSC 3146 - Introduction to Operating Systems and Networking"
+        placeholder="Enter course 3"
+        required
+      ><br><br>
+
+      <label for="course4">Course 4:</label><br>
+      <input
+        type="text"
+        id="course4"
+        name="course4"
+        value="ITSC 3155 - Software Engineering"
+        placeholder="Enter course 4"
+        required
+      ><br><br>
+
+      <label for="course5">Course 5:</label><br>
+      <input
+        type="text"
+        id="course5"
+        name="course5"
+        value="ITSC 3160 - Database Design and Implementation"
+        placeholder="Enter course 5"
+        required
+      ><br><br>
+
+      <label for="course6">Course 6:</label><br>
+      <input
+        type="text"
+        id="course6"
+        name="course6"
+        value="STAT 2122 - Introduction to Probability and Statistics"
+        placeholder="Enter course 6"
+        required
+      ><br><br>
+
+      <label for="quote">Quote:</label><br>
+      <textarea
+        id="quote"
+        name="quote"
+        rows="3"
+        cols="60"
+        placeholder="Enter your quote"
+        required
+      >Education is the passport to the future, for tomorrow belongs to those who prepare for it today.</textarea><br><br>
+
+      <label for="quoteAuthor">Quote Author:</label><br>
+      <input
+        type="text"
+        id="quoteAuthor"
+        name="quoteAuthor"
+        value="Malcolm X"
+        placeholder="Enter quote author"
+        required
+      ><br><br>
 
       <button type="submit">Submit</button>
       <button type="reset">Reset</button>
@@ -49,13 +238,11 @@
     </form>
 
     <section id="output"></section>
-
   </main>
 
-  <footer>
-    <p>© 2026 Ahmad Idris</p>
-  </footer>
+  <div data-include="/itis3135/components/footer.html"></div>
 
+  <script src="scripts/HTMLInclude.min.js"></script>
   <script src="scripts/introduction.js"></script>
   <script src="scripts/generate_html.js"></script>
   <script src="scripts/generate_json.js"></script>
