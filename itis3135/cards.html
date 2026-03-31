@@ -6,6 +6,59 @@
 
   <link rel="stylesheet" href="styles/default.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    .cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .playing-card {
+      width: 140px;
+      height: 200px;
+      background: white;
+      color: black;
+      border: 2px solid #333;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.75rem;
+      box-sizing: border-box;
+      font-family: Georgia, serif;
+    }
+
+    .playing-card.red {
+      color: #b00020;
+    }
+
+    .top-left,
+    .bottom-right {
+      font-size: 1.2rem;
+      line-height: 1.1;
+    }
+
+    .bottom-right {
+      transform: rotate(180deg);
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .center-symbol {
+      font-size: 3rem;
+      text-align: center;
+      margin: auto 0;
+    }
+
+    .cards-description {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,6 +78,50 @@
 
   <main>
     <h2>Page of Cards</h2>
+
+    <div class="cards-description">
+      <p>
+        This page displays a themed set of playing cards created with HTML and CSS. The layout uses reusable card styling, suit symbols, and clean spacing to create a simple card interface.
+      </p>
+    </div>
+
+    <div class="cards-wrapper">
+      <div class="playing-card red">
+        <div class="top-left">A<br>&hearts;</div>
+        <div class="center-symbol">&hearts;</div>
+        <div class="bottom-right">A<br>&hearts;</div>
+      </div>
+
+      <div class="playing-card">
+        <div class="top-left">K<br>&spades;</div>
+        <div class="center-symbol">&spades;</div>
+        <div class="bottom-right">K<br>&spades;</div>
+      </div>
+
+      <div class="playing-card red">
+        <div class="top-left">Q<br>&diams;</div>
+        <div class="center-symbol">&diams;</div>
+        <div class="bottom-right">Q<br>&diams;</div>
+      </div>
+
+      <div class="playing-card">
+        <div class="top-left">J<br>&clubs;</div>
+        <div class="center-symbol">&clubs;</div>
+        <div class="bottom-right">J<br>&clubs;</div>
+      </div>
+
+      <div class="playing-card red">
+        <div class="top-left">10<br>&hearts;</div>
+        <div class="center-symbol">&hearts;</div>
+        <div class="bottom-right">10<br>&hearts;</div>
+      </div>
+
+      <div class="playing-card">
+        <div class="top-left">7<br>&spades;</div>
+        <div class="center-symbol">&spades;</div>
+        <div class="bottom-right">7<br>&spades;</div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -38,7 +135,8 @@
       <a href="https://webpages.charlotte.edu/aidris1" target="_blank">CLT Web</a> |
       <a href="https://ahmad2wo.github.io" target="_blank">GitHub.io</a> |
       <a href="https://www.freecodecamp.org/ahmadidris" target="_blank">freeCodeCamp</a> |
-      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a> |
+      <a href="https://itis3135-react-opal.vercel.app/" target="_blank">ITIS3135@Vercel</a>
     </nav>
 
     <p>Page designed by <a href="ahmadidriswebstudio.com/">Ahmad Idris Web Studio</a></p>

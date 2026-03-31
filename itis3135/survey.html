@@ -5,8 +5,69 @@
   <title>Ahmad Idris's Niner ~ ITIS 3135 | Survey</title>
 
   <link rel="stylesheet" href="styles/default.css">
-
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    .survey-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.06);
+    }
+
+    .survey-container p {
+      margin-bottom: 1rem;
+    }
+
+    .survey-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .survey-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+    }
+
+    .survey-group input,
+    .survey-group select,
+    .survey-group textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.65rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .inline-options label {
+      display: block;
+      font-weight: normal;
+      margin-bottom: 0.45rem;
+    }
+
+    .inline-options input {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    .submit-btn {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,8 +86,68 @@
   </header>
 
   <main>
-    <h2>Survey</h2>
-    <p>This page will contain the freeCodeCamp Survey Form project.</p>
+    <h2>Survey Form</h2>
+
+    <div class="survey-container">
+      <p id="description">
+        Thank you for visiting my ITIS 3135 Survey page. Please complete this short survey about your experience with web development and course projects.
+      </p>
+
+      <form id="survey-form" action="#" method="post">
+        <div class="survey-group">
+          <label for="name" id="name-label">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="survey-group">
+          <label for="email" id="email-label">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="survey-group">
+          <label for="number" id="number-label">Age</label>
+          <input type="number" id="number" name="age" min="10" max="100" placeholder="Enter your age">
+        </div>
+
+        <div class="survey-group">
+          <label for="dropdown">Which option best describes you?</label>
+          <select id="dropdown" name="role">
+            <option value="">Select an option</option>
+            <option value="student">Student</option>
+            <option value="instructor">Instructor</option>
+            <option value="self-learner">Self-Learner</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="survey-group">
+          <label>Would you recommend learning HTML and CSS to a beginner?</label>
+          <div class="inline-options">
+            <label><input type="radio" name="recommend" value="yes" checked> Yes</label>
+            <label><input type="radio" name="recommend" value="maybe"> Maybe</label>
+            <label><input type="radio" name="recommend" value="no"> No</label>
+          </div>
+        </div>
+
+        <div class="survey-group">
+          <label>Which topics are most useful to you?</label>
+          <div class="inline-options">
+            <label><input type="checkbox" name="topics" value="html"> HTML</label>
+            <label><input type="checkbox" name="topics" value="css"> CSS</label>
+            <label><input type="checkbox" name="topics" value="javascript"> JavaScript</label>
+            <label><input type="checkbox" name="topics" value="accessibility"> Accessibility</label>
+            <label><input type="checkbox" name="topics" value="responsive-design"> Responsive Design</label>
+          </div>
+        </div>
+
+        <div class="survey-group">
+          <label for="comments">Additional Comments</label>
+          <textarea id="comments" name="comments" rows="5" placeholder="Share your thoughts here..."></textarea>
+        </div>
+
+        <button type="submit" id="submit" class="submit-btn">Submit Survey</button>
+      </form>
+    </div>
   </main>
 
   <footer>
@@ -40,7 +161,8 @@
       <a href="https://webpages.charlotte.edu/aidris1" target="_blank">CLT Web</a> |
       <a href="https://ahmad2wo.github.io" target="_blank">GitHub.io</a> |
       <a href="https://www.freecodecamp.org/ahmadidris" target="_blank">freeCodeCamp</a> |
-      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a> |
+      <a href="https://itis3135-react-opal.vercel.app/" target="_blank">ITIS3135@Vercel</a>
     </nav>
 
     <p>Page designed by <a href="ahmadidriswebstudio.com/">Ahmad Idris Web Studio</a></p>

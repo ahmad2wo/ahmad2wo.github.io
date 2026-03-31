@@ -5,8 +5,73 @@
   <title>Ahmad Idris's Niner ~ ITIS 3135 | Inventory</title>
 
   <link rel="stylesheet" href="styles/default.css">
-
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    .inventory-layout {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .inventory-form,
+    .inventory-table-wrap {
+      background-color: rgba(255,255,255,0.06);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .inventory-form .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .inventory-form label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: bold;
+    }
+
+    .inventory-form input,
+    .inventory-form select,
+    .inventory-form textarea {
+      width: 100%;
+      padding: 0.65rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    .inventory-form button {
+      padding: 0.75rem 1.1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #1565c0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .inventory-form button:hover {
+      opacity: 0.9;
+    }
+
+    table.inventory-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .inventory-table th,
+    .inventory-table td {
+      border: 1px solid #999;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .inventory-table th {
+      background-color: rgba(255,255,255,0.12);
+    }
+  </style>
 </head>
 
 <body>
@@ -25,7 +90,88 @@
   </header>
 
   <main>
-    <h2>Inventory</h2>
+    <h2>Book Inventory</h2>
+
+    <div class="inventory-layout">
+      <div class="inventory-form">
+        <h3>Add a Book</h3>
+        <form action="#" method="post">
+          <div class="form-row">
+            <label for="book-title">Book Title</label>
+            <input type="text" id="book-title" name="book-title" placeholder="Enter book title">
+          </div>
+
+          <div class="form-row">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" placeholder="Enter author name">
+          </div>
+
+          <div class="form-row">
+            <label for="genre">Genre</label>
+            <select id="genre" name="genre">
+              <option value="">Select genre</option>
+              <option value="fiction">Fiction</option>
+              <option value="nonfiction">Nonfiction</option>
+              <option value="technology">Technology</option>
+              <option value="history">History</option>
+              <option value="biography">Biography</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="99" placeholder="Enter quantity">
+          </div>
+
+          <div class="form-row">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Additional notes"></textarea>
+          </div>
+
+          <button type="submit">Add to Inventory</button>
+        </form>
+      </div>
+
+      <div class="inventory-table-wrap">
+        <h3>Current Inventory</h3>
+        <table class="inventory-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Genre</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clean Code</td>
+              <td>Robert C. Martin</td>
+              <td>Technology</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Atomic Habits</td>
+              <td>James Clear</td>
+              <td>Nonfiction</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>The Hobbit</td>
+              <td>J.R.R. Tolkien</td>
+              <td>Fiction</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Steve Jobs</td>
+              <td>Walter Isaacson</td>
+              <td>Biography</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -39,7 +185,8 @@
       <a href="https://webpages.charlotte.edu/aidris1" target="_blank">CLT Web</a> |
       <a href="https://ahmad2wo.github.io" target="_blank">GitHub.io</a> |
       <a href="https://www.freecodecamp.org/ahmadidris" target="_blank">freeCodeCamp</a> |
-      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a> |
+      <a href="https://itis3135-react-opal.vercel.app/" target="_blank">ITIS3135@Vercel</a>
     </nav>
 
     <p>Page designed by <a href="ahmadidriswebstudio.com/">Ahmad Idris Web Studio</a></p>

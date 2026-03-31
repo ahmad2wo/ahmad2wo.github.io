@@ -6,6 +6,65 @@
 
   <link rel="stylesheet" href="styles/default.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .doc-nav,
+    .doc-content {
+      background-color: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .doc-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .doc-nav li {
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-nav a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .doc-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .doc-section code,
+    .doc-section pre {
+      background-color: rgba(0,0,0,0.25);
+      padding: 0.2rem 0.35rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .doc-section pre {
+      display: block;
+      padding: 0.8rem;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 800px) {
+      .doc-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -25,7 +84,83 @@
 
   <main>
     <h2>Technical Documentation</h2>
-    <p>This page will contain the freeCodeCamp Technical Documentation project.</p>
+
+    <div class="doc-layout">
+      <aside class="doc-nav">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#intro">HTML Basics</a></li>
+          <li><a href="#elements">Common Elements</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#css">CSS Styling</a></li>
+          <li><a href="#best-practices">Best Practices</a></li>
+        </ul>
+      </aside>
+
+      <section class="doc-content">
+        <section class="doc-section" id="intro">
+          <h3>HTML Basics</h3>
+          <p>
+            HTML stands for HyperText Markup Language and is used to structure content on a webpage. It defines headings, paragraphs, links, images, lists, forms, and other page elements.
+          </p>
+          <p>
+            A basic document begins with <code>&lt;!DOCTYPE html&gt;</code> and includes the <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> elements.
+          </p>
+        </section>
+
+        <section class="doc-section" id="elements">
+          <h3>Common Elements</h3>
+          <p>
+            Some of the most common HTML elements include headings, paragraphs, anchor links, images, lists, and semantic layout elements such as header, main, section, article, and footer.
+          </p>
+          <pre>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</pre>
+        </section>
+
+        <section class="doc-section" id="forms">
+          <h3>Forms</h3>
+          <p>
+            Forms allow users to enter data. Common form controls include text inputs, email inputs, number inputs, radio buttons, checkboxes, textareas, and submit buttons.
+          </p>
+          <pre>&lt;form&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+        </section>
+
+        <section class="doc-section" id="css">
+          <h3>CSS Styling</h3>
+          <p>
+            CSS is used to style the structure created with HTML. It can change colors, layout, spacing, typography, borders, and responsiveness across devices.
+          </p>
+          <pre>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: navy;
+}</pre>
+        </section>
+
+        <section class="doc-section" id="best-practices">
+          <h3>Best Practices</h3>
+          <p>
+            Good web pages use semantic HTML, meaningful headings, accessible labels, readable contrast, organized CSS, and responsive layout principles.
+          </p>
+          <ul>
+            <li>Use clear and descriptive headings.</li>
+            <li>Keep navigation easy to understand.</li>
+            <li>Use labels for all form inputs.</li>
+            <li>Write clean and readable code.</li>
+            <li>Test your work across different screen sizes.</li>
+          </ul>
+        </section>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -39,7 +174,8 @@
       <a href="https://webpages.charlotte.edu/aidris1" target="_blank">CLT Web</a> |
       <a href="https://ahmad2wo.github.io" target="_blank">GitHub.io</a> |
       <a href="https://www.freecodecamp.org/ahmadidris" target="_blank">freeCodeCamp</a> |
-      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a> |
+      <a href="https://itis3135-react-opal.vercel.app/" target="_blank">ITIS3135@Vercel</a>
     </nav>
 
     <p>Page designed by <a href="ahmadidriswebstudio.com/">Ahmad Idris Web Studio</a></p>

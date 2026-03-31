@@ -6,6 +6,93 @@
 
   <link rel="stylesheet" href="styles/default.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    .hero,
+    .features,
+    .pricing,
+    .newsletter {
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+      padding: 1.25rem;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.06);
+      text-align: left;
+    }
+
+    .hero h3,
+    .features h3,
+    .pricing h3,
+    .newsletter h3 {
+      margin-top: 0;
+    }
+
+    .hero .hero-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.2rem;
+      background-color: #c62828;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .feature-grid,
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .feature-card,
+    .price-card {
+      background-color: rgba(255,255,255,0.08);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .price-card h4 {
+      margin-top: 0;
+    }
+
+    .newsletter form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .newsletter input[type="email"] {
+      flex: 1 1 250px;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .newsletter button {
+      padding: 0.75rem 1.1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #1565c0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .video-wrap {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 395px;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,7 +112,78 @@
 
   <main>
     <h2>Product Landing Page</h2>
-    <p>This page will contain the freeCodeCamp Product Landing Page project.</p>
+
+    <section class="hero">
+      <h3>StudyStack Pro Planner</h3>
+      <p>
+        StudyStack Pro Planner is a productivity tool designed for students who want one place to organize assignments, study goals, deadlines, and weekly progress.
+      </p>
+      <p>
+        It combines a clean interface, flexible planning tools, and a simple workflow to help students stay on track throughout the semester.
+      </p>
+      <a href="#pricing" class="hero-btn">See Pricing</a>
+
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/Tn6-PIqc4UM"
+          title="Product Demo Video"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="features">
+      <h3>Features</h3>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h4>Assignment Tracking</h4>
+          <p>Organize quizzes, projects, homework, and exams in one easy dashboard.</p>
+        </article>
+
+        <article class="feature-card">
+          <h4>Weekly Planning</h4>
+          <p>Build a realistic weekly study schedule that helps you manage your time effectively.</p>
+        </article>
+
+        <article class="feature-card">
+          <h4>Progress Monitoring</h4>
+          <p>Track what is complete, what is in progress, and what still needs attention.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <h3>Pricing</h3>
+      <div class="price-grid">
+        <article class="price-card">
+          <h4>Basic</h4>
+          <p><strong>$0/month</strong></p>
+          <p>Simple planning tools and one active course dashboard.</p>
+        </article>
+
+        <article class="price-card">
+          <h4>Student</h4>
+          <p><strong>$5/month</strong></p>
+          <p>Unlimited courses, progress tracking, and weekly planning templates.</p>
+        </article>
+
+        <article class="price-card">
+          <h4>Pro</h4>
+          <p><strong>$10/month</strong></p>
+          <p>Advanced scheduling, priority tagging, and exportable reports.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h3>Join the Waitlist</h3>
+      <p>Enter your email to get updates about new features and student discounts.</p>
+
+      <form action="#" method="post">
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        <button type="submit" id="submit">Join Now</button>
+      </form>
+    </section>
   </main>
 
   <footer>
@@ -39,7 +197,8 @@
       <a href="https://webpages.charlotte.edu/aidris1" target="_blank">CLT Web</a> |
       <a href="https://ahmad2wo.github.io" target="_blank">GitHub.io</a> |
       <a href="https://www.freecodecamp.org/ahmadidris" target="_blank">freeCodeCamp</a> |
-      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/ahmad-n-idris-0517ba2b7/" target="_blank">LinkedIn</a> |
+      <a href="https://itis3135-react-opal.vercel.app/" target="_blank">ITIS3135@Vercel</a>
     </nav>
 
     <p>Page designed by <a href="ahmadidriswebstudio.com/">Ahmad Idris Web Studio</a></p>
