@@ -235,13 +235,15 @@ main {
   text-align: center;
 }
 
-.page-hero h1 {
+.page-hero-title {
   font-size: 3.2rem;
   color: var(--white);
   font-weight: 900;
+  font-family: var(--font-display);
+  line-height: 1.1;
 }
 
-.page-hero h1 span {
+.page-hero-title span {
   color: var(--blue-pale);
 }
 
@@ -372,7 +374,7 @@ main {
     font-size: 2rem;
   }
 
-  .page-hero h1 {
+  .page-hero-title {
     font-size: 2.2rem;
   }
 }
