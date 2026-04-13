@@ -7,10 +7,21 @@
   <link rel="stylesheet" href="styles/site.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
-    #gallery-section { padding: 4rem 1.5rem; }
-    .gallery-container { max-width: 1100px; margin: 0 auto; }
+    #gallery-section {
+      padding: 4rem 1.5rem;
+    }
 
-    .gallery-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .gallery-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
 
     .filter-btn {
       padding: 0.4rem 1.1rem;
@@ -27,7 +38,8 @@
       font-family: var(--font-display);
     }
 
-    .filter-btn:hover, .filter-btn.active {
+    .filter-btn:hover,
+    .filter-btn.active {
       background: var(--blue);
       border-color: var(--blue);
       color: var(--white);
@@ -50,18 +62,36 @@
       transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
-    .gallery-item:nth-child(4n) { grid-column: span 2; }
+    .gallery-item:nth-child(4n) {
+      grid-column: span 2;
+    }
 
-    .gallery-item:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 32px var(--blue-glow); }
+    .gallery-item:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--blue-glow);
+    }
 
-    .gallery-item img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.4s ease; }
-    .gallery-item:nth-child(4n) img { height: 240px; }
-    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:nth-child(4n) img {
+      height: 240px;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
 
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(21,101,192,0.7);
+      background: rgba(21, 101, 192, 0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -71,9 +101,15 @@
       gap: 0.5rem;
     }
 
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
 
-    .gallery-overlay svg { width: 32px; height: 32px; color: white; }
+    .gallery-overlay svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
 
     .gallery-overlay span {
       color: white;
@@ -88,13 +124,15 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0, 0, 0, 0.9);
       align-items: center;
       justify-content: center;
       flex-direction: column;
     }
 
-    #lightbox.open { display: flex; }
+    #lightbox.open {
+      display: flex;
+    }
 
     #lightbox img {
       max-width: 88vw;
@@ -102,19 +140,24 @@
       border-radius: var(--radius);
       border: 3px solid var(--blue);
       object-fit: contain;
-      box-shadow: 0 0 60px rgba(21,101,192,0.4);
+      box-shadow: 0 0 60px rgba(21, 101, 192, 0.4);
     }
 
     .lightbox-caption {
       margin-top: 1rem;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 0.9rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-family: var(--font-display);
     }
 
-    .lightbox-controls { display: flex; gap: 1rem; margin-top: 1rem; align-items: center; }
+    .lightbox-controls {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      align-items: center;
+    }
 
     .lb-btn {
       background: var(--white);
@@ -130,15 +173,20 @@
       transition: all var(--transition);
     }
 
-    .lb-btn:hover { background: var(--blue); color: var(--white); }
+    .lb-btn:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
 
     #lightbox-close {
       position: absolute;
-      top: 1.25rem; right: 1.5rem;
+      top: 1.25rem;
+      right: 1.5rem;
       background: var(--white);
       border: none;
       color: var(--blue);
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       font-size: 1.3rem;
       cursor: pointer;
@@ -148,21 +196,36 @@
       transition: all var(--transition);
     }
 
-    #lightbox-close:hover { background: var(--blue); color: var(--white); }
-    #lightbox-counter { font-size: 0.82rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; font-family: var(--font-display); }
+    #lightbox-close:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    #lightbox-counter {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.1em;
+      font-family: var(--font-display);
+    }
 
     @media (max-width: 768px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item:nth-child(4n) { grid-column: span 1; }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item:nth-child(4n) {
+        grid-column: span 1;
+      }
     }
   </style>
 </head>
 <body>
-
   <header id="site-header">
     <div class="logo">UNM<span>BARBER</span></div>
     <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
     <nav id="site-nav">
       <a href="index.html">Home</a>
@@ -174,7 +237,6 @@
   </header>
 
   <main>
-
     <div class="page-hero">
       <h1>WORK <span>GALLERY</span></h1>
       <p>Real cuts — click any photo to enlarge</p>
@@ -182,21 +244,19 @@
 
     <section id="gallery-section">
       <div class="gallery-container">
-
         <div class="gallery-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="fade">Fades</button>
-          <button class="filter-btn" data-filter="lineup">Lineups</button>
-          <button class="filter-btn" data-filter="beard">Beard</button>
-          <button class="filter-btn" data-filter="full">Full Cuts</button>
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="fade" type="button">Fades</button>
+          <button class="filter-btn" data-filter="lineup" type="button">Lineups</button>
+          <button class="filter-btn" data-filter="beard" type="button">Beard</button>
+          <button class="filter-btn" data-filter="full" type="button">Full Cuts</button>
         </div>
 
         <div class="gallery-grid" id="gallery-grid">
-
           <div class="gallery-item" data-category="fade" data-caption="Low Fade">
             <img src="images/low-fade.png" alt="Low Fade">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Low Fade</span>
             </div>
           </div>
@@ -204,7 +264,7 @@
           <div class="gallery-item" data-category="lineup" data-caption="Sharp Lineup">
             <img src="images/Sharp Lineup.png" alt="Sharp Lineup">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Sharp Lineup</span>
             </div>
           </div>
@@ -212,7 +272,7 @@
           <div class="gallery-item" data-category="beard" data-caption="Beard Cut">
             <img src="images/Beard Cut.png" alt="Beard Cut">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Beard Cut</span>
             </div>
           </div>
@@ -220,7 +280,7 @@
           <div class="gallery-item" data-category="full" data-caption="Special Haircut">
             <img src="images/Special Haircut.png" alt="Special Haircut">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Special Haircut</span>
             </div>
           </div>
@@ -228,7 +288,7 @@
           <div class="gallery-item" data-category="fade" data-caption="Skin Fade">
             <img src="images/Skin Fade.png" alt="Skin Fade">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Skin Fade</span>
             </div>
           </div>
@@ -236,7 +296,7 @@
           <div class="gallery-item" data-category="lineup" data-caption="Temple Taper">
             <img src="images/Temple Taper.png" alt="Temple Taper">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Temple Taper</span>
             </div>
           </div>
@@ -244,7 +304,7 @@
           <div class="gallery-item" data-category="beard" data-caption="Full Beard">
             <img src="images/Full Beard.png" alt="Full Beard">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Full Beard</span>
             </div>
           </div>
@@ -252,7 +312,7 @@
           <div class="gallery-item" data-category="full" data-caption="Full Groom">
             <img src="images/Full Groom.png" alt="Full Groom">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Full Groom</span>
             </div>
           </div>
@@ -260,25 +320,23 @@
           <div class="gallery-item" data-category="fade" data-caption="Mid Fade">
             <img src="images/Mid Fade.png" alt="Mid Fade">
             <div class="gallery-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               <span>Mid Fade</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
   </main>
 
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
-    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button id="lightbox-close" aria-label="Close lightbox" type="button">&times;</button>
     <img id="lightbox-img" src="" alt="">
     <div class="lightbox-caption" id="lightbox-caption"></div>
     <div class="lightbox-controls">
-      <button class="lb-btn" id="lb-prev">&#8592; Prev</button>
+      <button class="lb-btn" id="lb-prev" type="button">&#8592; Prev</button>
       <span id="lightbox-counter">1 / 9</span>
-      <button class="lb-btn" id="lb-next">Next &#8594;</button>
+      <button class="lb-btn" id="lb-next" type="button">Next &#8594;</button>
     </div>
   </div>
 
@@ -289,12 +347,13 @@
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank" rel="noopener">HTML Validator</a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">CSS Validator</a>
     </nav>
     <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
   </footer>
 
   <script src="scripts/nav.js"></script>
   <script src="scripts/gallery.js"></script>
-
 </body>
 </html>

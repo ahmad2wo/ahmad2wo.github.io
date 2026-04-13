@@ -32,8 +32,10 @@
     .barber-photo-wrap::before {
       content: '';
       position: absolute;
-      top: 12px; left: 12px;
-      right: -12px; bottom: -12px;
+      top: 12px;
+      left: 12px;
+      right: -12px;
+      bottom: -12px;
       background: var(--blue);
       border-radius: var(--radius);
       z-index: -1;
@@ -92,14 +94,16 @@
     .about-cta h3 { font-size: 2rem; color: var(--white); margin-bottom: 0.75rem; font-weight: 900; }
     .about-cta p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
 
-    @media (max-width: 768px) { .about-intro-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    @media (max-width: 768px) {
+      .about-intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
   </style>
 </head>
 <body>
 
   <header id="site-header">
     <div class="logo">UNM<span>BARBER</span></div>
-    <button id="nav-toggle" aria-label="Toggle navigation">
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <nav id="site-nav">
@@ -112,7 +116,6 @@
   </header>
 
   <main>
-
     <div class="page-hero">
       <h1>ABOUT <span>US</span></h1>
       <p>The story behind the scissors</p>
@@ -123,14 +126,14 @@
 
         <div class="about-intro-grid">
           <div class="barber-photo-wrap">
-            <img src="images/full-groom.png" alt="Barber at work">
+            <img src="images/Full Groom.png" alt="Barber at work">
           </div>
 
           <div class="about-bio">
             <p class="role">Head Barber &amp; Owner</p>
             <h2>MEET THE <span>BARBER</span></h2>
             <div class="divider"></div>
-            <p>University No Money Barber was founded on one idea: every student deserves a clean, professional haircut — regardless of budget. As someone who grew up around the barbershop culture, the owner has been cutting hair for over 5 years, honing a craft that blends classic technique with modern style.</p>
+            <p>University No Money Barber was founded on one idea: every student deserves a clean, professional haircut — regardless of budget. As someone who grew up around barbershop culture, the owner has been cutting hair for over 5 years, honing a craft that blends classic technique with modern style.</p>
             <p>Based near UNC Charlotte, the shop quickly became a favorite for students who wanted quality work at prices that make sense on a college budget. Word of mouth and a growing client base proved the concept works.</p>
             <p>Whether it's your first visit or your fiftieth, every client gets the same attention to detail and the same level of care. That's the promise.</p>
             <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
@@ -152,7 +155,7 @@
           <div class="why-card">
             <span class="why-icon">💰</span>
             <h4>Student Pricing</h4>
-            <p>Prices designed with college budgets in mind. Quality cuts shouldn't cost a month's rent.</p>
+            <p>Prices designed with college budgets in mind. Quality cuts should not cost a month’s rent.</p>
           </div>
           <div class="why-card">
             <span class="why-icon">✂️</span>
@@ -177,7 +180,7 @@
           <div class="why-card">
             <span class="why-icon">💬</span>
             <h4>Personal Service</h4>
-            <p>One-on-one attention, no rushed appointments. You'll always leave looking and feeling your best.</p>
+            <p>One-on-one attention, no rushed appointments. You’ll always leave looking and feeling your best.</p>
           </div>
         </div>
 
@@ -192,7 +195,6 @@
 
       </div>
     </section>
-
   </main>
 
   <footer id="site-footer">
@@ -202,13 +204,10 @@
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
-      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
-      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
     </nav>
     <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
   </footer>
 
   <script src="scripts/nav.js"></script>
-
 </body>
 </html>

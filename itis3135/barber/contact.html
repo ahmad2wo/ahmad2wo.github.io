@@ -53,10 +53,15 @@
 
     .map-placeholder {
       background: var(--surface2);
-      width: 100%; height: 260px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      color: var(--muted); font-size: 0.85rem; gap: 0.5rem;
+      width: 100%;
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      gap: 0.5rem;
     }
 
     @media (max-width: 768px) {
@@ -69,7 +74,7 @@
 
   <header id="site-header">
     <div class="logo">UNM<span>BARBER</span></div>
-    <button id="nav-toggle" aria-label="Toggle navigation">
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <nav id="site-nav">
@@ -82,7 +87,6 @@
   </header>
 
   <main>
-
     <div class="page-hero">
       <h1>GET IN <span>TOUCH</span></h1>
       <p>Book an appointment or ask us anything</p>
@@ -188,7 +192,6 @@
 
       </div>
     </section>
-
   </main>
 
   <footer id="site-footer">
@@ -198,14 +201,11 @@
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
-      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
-      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
     </nav>
     <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
   </footer>
 
   <script src="scripts/nav.js"></script>
   <script src="scripts/contact.js"></script>
-
 </body>
 </html>
