@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services – University No Money Barber</title>
+  <link rel="stylesheet" href="styles/site.css">
+  <!-- jQuery UI CSS for accordion widget -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+  <style>
+    .ui-accordion .ui-accordion-header {
+      background: var(--surface2) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      color: var(--white) !important;
+      font-family: var(--font-display) !important;
+      font-size: 1.2rem !important;
+      letter-spacing: 0.08em;
+      padding: 1rem 1.25rem !important;
+      margin-bottom: 4px !important;
+      transition: background var(--transition) !important;
+    }
+
+    .ui-accordion .ui-accordion-header:hover,
+    .ui-accordion .ui-accordion-header-active {
+      background: rgba(198,40,40,0.18) !important;
+      border-color: var(--red) !important;
+      color: var(--red) !important;
+    }
+
+    .ui-accordion .ui-accordion-content {
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      border-top: none !important;
+      border-radius: 0 0 var(--radius) var(--radius) !important;
+      padding: 1.25rem !important;
+      margin-bottom: 8px !important;
+    }
+
+    .ui-accordion .ui-accordion-header .ui-icon { filter: invert(1) opacity(0.5); }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .services-table th {
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .services-table tr:last-child td { border-bottom: none; }
+
+    .services-table .price-cell {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .services-table .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    #services-wrap {
+      padding: 4rem 1.5rem;
+    }
+
+    .services-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .services-sidebar .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-sidebar h4 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 0.4rem;
+    }
+
+    .hours-list { list-style: none; }
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hours-list li span:last-child { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .services-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="logo">UNM<span>B</span>ARBER</div>
+    <button id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="page-hero">
+      <h1>OUR <span>SERVICES</span></h1>
+      <p>Transparent pricing — no surprises, just fresh cuts</p>
+    </div>
+
+    <section id="services-wrap">
+      <div class="services-layout">
+
+        <div>
+          <p class="section-sub">Click a category to expand</p>
+
+          <div id="services-accordion">
+
+            <h3>✂ Haircuts</h3>
+            <div>
+              <table class="services-table">
+                <thead>
+                  <tr><th>Service</th><th>Description</th><th>Price</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Classic Fade</td>
+                    <td>Taper fade with styled top<span class="note">Short, medium, or long on top</span></td>
+                    <td class="price-cell">$15</td>
+                  </tr>
+                  <tr>
+                    <td>Bald / Skin Fade</td>
+                    <td>Zero-to-skin fade<span class="note">Includes a hot towel finish</span></td>
+                    <td class="price-cell">$18</td>
+                  </tr>
+                  <tr>
+                    <td>Full Cut</td>
+                    <td>Haircut with scissors &amp; clipper blend<span class="note">Any length or style</span></td>
+                    <td class="price-cell">$20</td>
+                  </tr>
+                  <tr>
+                    <td>Kids Cut (12 &amp; under)</td>
+                    <td>Gentle cut for younger clients</td>
+                    <td class="price-cell">$12</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>〰 Lineup &amp; Beard</h3>
+            <div>
+              <table class="services-table">
+                <thead>
+                  <tr><th>Service</th><th>Description</th><th>Price</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lineup / Edge Up</td>
+                    <td>Sharp edges along hairline &amp; temples</td>
+                    <td class="price-cell">$10</td>
+                  </tr>
+                  <tr>
+                    <td>Beard Trim</td>
+                    <td>Shape and clean up beard<span class="note">Includes hot towel</span></td>
+                    <td class="price-cell">$12</td>
+                  </tr>
+                  <tr>
+                    <td>Beard + Lineup Combo</td>
+                    <td>Full beard shaping with hairline edge</td>
+                    <td class="price-cell">$20</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>🎯 Combo Packages</h3>
+            <div>
+              <table class="services-table">
+                <thead>
+                  <tr><th>Package</th><th>Includes</th><th>Price</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Student Special</td>
+                    <td>Classic Fade + Lineup<span class="note">Most popular package</span></td>
+                    <td class="price-cell">$22</td>
+                  </tr>
+                  <tr>
+                    <td>Full Grooming</td>
+                    <td>Cut + Beard + Lineup<span class="note">Full refresh</span></td>
+                    <td class="price-cell">$35</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>✨ Add-Ons</h3>
+            <div>
+              <table class="services-table">
+                <thead>
+                  <tr><th>Add-On</th><th>Description</th><th>Price</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Shampoo &amp; Wash</td>
+                    <td>Hair wash before any service</td>
+                    <td class="price-cell">+$5</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Towel</td>
+                    <td>Relaxing hot towel treatment</td>
+                    <td class="price-cell">+$3</td>
+                  </tr>
+                  <tr>
+                    <td>Design / Art</td>
+                    <td>Custom hair design or part line</td>
+                    <td class="price-cell">+$10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <div style="margin-top:2rem; text-align:center;">
+            <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
+          </div>
+        </div>
+
+        <aside class="services-sidebar">
+          <div class="sidebar-card">
+            <h4>HOURS</h4>
+            <ul class="hours-list">
+              <li><span>Monday</span><span>10am – 7pm</span></li>
+              <li><span>Tuesday</span><span>10am – 7pm</span></li>
+              <li><span>Wednesday</span><span>10am – 7pm</span></li>
+              <li><span>Thursday</span><span>10am – 8pm</span></li>
+              <li><span>Friday</span><span>9am – 8pm</span></li>
+              <li><span>Saturday</span><span>9am – 6pm</span></li>
+              <li><span>Sunday</span><span>11am – 5pm</span></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>QUICK INFO</h4>
+            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.75rem;">Walk-ins welcome. Appointments preferred.</p>
+            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Cash, Venmo, Cash App accepted.</p>
+            <a href="contact.html" class="btn btn-outline" style="width:100%; text-align:center; display:block;">Contact Us</a>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
+    </nav>
+    <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script>
+    $(function () {
+      $('#services-accordion').accordion({
+        collapsible: true,
+        heightStyle: 'content',
+        animate: 250
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery – University No Money Barber</title>
+  <link rel="stylesheet" href="styles/site.css">
+  <style>
+    #gallery-section { padding: 4rem 1.5rem; }
+
+    .gallery-container { max-width: 1100px; margin: 0 auto; }
+
+    .gallery-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .gallery-item:nth-child(4n) { grid-column: span 2; }
+
+    .gallery-item:hover {
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(198,40,40,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay svg { width: 36px; height: 36px; color: white; }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      gap: 0.5rem;
+      background: var(--surface2);
+    }
+
+    .gallery-placeholder-label {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #lightbox.open { display: flex; }
+
+    #lightbox img {
+      max-width: 88vw;
+      max-height: 78vh;
+      border-radius: var(--radius);
+      border: 2px solid var(--red);
+      object-fit: contain;
+    }
+
+    #lightbox-placeholder {
+      width: 600px;
+      max-width: 88vw;
+      height: 420px;
+      background: var(--surface2);
+      border: 2px solid var(--red);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .lightbox-caption {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .lightbox-controls {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      align-items: center;
+    }
+
+    .lb-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: all var(--transition);
+    }
+
+    .lb-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    #lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color var(--transition);
+    }
+
+    #lightbox-close:hover { color: var(--red); }
+
+    #lightbox-counter { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.1em; }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(4n) { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="logo">UNM<span>B</span>ARBER</div>
+    <button id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="page-hero">
+      <h1>WORK <span>GALLERY</span></h1>
+      <p>Real cuts — click any photo to enlarge</p>
+    </div>
+
+    <section id="gallery-section">
+      <div class="gallery-container">
+
+        <div class="gallery-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="fade">Fades</button>
+          <button class="filter-btn" data-filter="lineup">Lineups</button>
+          <button class="filter-btn" data-filter="beard">Beard</button>
+          <button class="filter-btn" data-filter="full">Full Cuts</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+
+          <div class="gallery-item" data-category="fade" data-caption="Low Fade – Side View" data-index="0">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Low Fade</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="lineup" data-caption="Sharp Lineup – Front" data-index="1">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Sharp Lineup</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="beard" data-caption="Beard Shape Up" data-index="2">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Beard Trim</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="full" data-caption="Full Cut – Student Special" data-index="3">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Student Special</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="fade" data-caption="Skin Fade – Back View" data-index="4">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Skin Fade</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="lineup" data-caption="Temple Taper" data-index="5">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Temple Taper</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="beard" data-caption="Full Beard Shaping" data-index="6">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Full Beard</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="full" data-caption="Full Grooming Package" data-index="7">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Full Groom</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="fade" data-caption="Mid Fade – Side Profile" data-index="8">
+            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Mid Fade</span></div>
+            <div class="gallery-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <div id="lightbox-placeholder">No image available</div>
+    <div class="lightbox-caption" id="lightbox-caption">Caption here</div>
+    <div class="lightbox-controls">
+      <button class="lb-btn" id="lb-prev">&#8592; Prev</button>
+      <span id="lightbox-counter">1 / 9</span>
+      <button class="lb-btn" id="lb-next">Next &#8594;</button>
+    </div>
+  </div>
+
+  <footer id="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
+    </nav>
+    <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
+  </footer>
+
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/gallery.js"></script>
+
+</body>
+</html>

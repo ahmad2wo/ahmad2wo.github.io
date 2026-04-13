@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University No Money Barber – Home</title>
+  <link rel="stylesheet" href="styles/site.css">
+  <!-- Page-specific hero styles -->
+  <style>
+    #hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(ellipse at 20% 50%, rgba(198,40,40,0.18) 0%, transparent 60%),
+                  linear-gradient(160deg, #1a0000 0%, #0d0d0d 50%);
+      overflow: hidden;
+      padding: 4rem 1.5rem;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      background: conic-gradient(from 45deg, var(--red-glow), transparent 30%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 1.25rem;
+    }
+
+    #hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    #feature-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .feature-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .feature-item h3 {
+      font-size: 2.4rem;
+      color: var(--red);
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    #about-strip {
+      padding: 5rem 1.5rem;
+    }
+
+    .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img-box {
+      position: relative;
+    }
+
+    .about-img-box img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 2px solid var(--red);
+    }
+
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--surface2);
+      border: 2px solid var(--red);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      gap: 0.5rem;
+    }
+
+    .img-placeholder svg { width: 40px; height: 40px; opacity: 0.4; }
+
+    .about-text h2 { font-size: 2.8rem; color: var(--white); margin-bottom: 0.5rem; }
+    .about-text h2 span { color: var(--red); }
+
+    .about-text p { color: var(--muted); margin-bottom: 1.25rem; }
+
+    #services-preview {
+      background: var(--surface);
+      padding: 5rem 1.5rem;
+    }
+
+    #services-preview .container { max-width: 1100px; margin: 0 auto; }
+
+    .services-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: var(--red);
+      transform: translateY(-3px);
+    }
+
+    .service-card .price {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--red);
+    }
+
+    .service-card .name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    .service-card .desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* ---- Gallery preview ---- */
+    #gallery-preview {
+      padding: 5rem 1.5rem;
+    }
+
+    #gallery-preview .container { max-width: 1100px; margin: 0 auto; }
+
+    .gallery-grid-preview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 160px);
+      gap: 0.75rem;
+    }
+
+    .gallery-thumb {
+      background: var(--surface2);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-thumb:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-thumb .thumb-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-grid-preview { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-thumb:first-child { grid-column: span 1; grid-row: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header id="site-header">
+    <div class="logo">UNM<span>B</span>ARBER</div>
+
+    <!-- Mobile toggle button -->
+    <button id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-nav">
+      <!-- active class highlights current page -->
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">📍 Serving UNCC &amp; Surrounding Area</p>
+        <h1>
+          FRESH<br>
+          <em>CUTS.</em><br>
+          REAL<br>PRICES.
+        </h1>
+        <p class="hero-tagline">
+          University No Money Barber — the go-to spot for college students
+          who want clean, professional haircuts without breaking the bank.
+        </p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-primary">Book Now</a>
+          <a href="services.html" class="btn btn-outline">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="feature-strip">
+      <div class="feature-strip-inner">
+        <div class="feature-item">
+          <h3>$15+</h3>
+          <p>Starting Price</p>
+        </div>
+        <div class="feature-item">
+          <h3>500+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="feature-item">
+          <h3>5★</h3>
+          <p>Average Rating</p>
+        </div>
+        <div class="feature-item">
+          <h3>7 Days</h3>
+          <p>A Week</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-strip">
+      <div class="about-grid">
+
+        <div class="about-img-box">
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+            </svg>
+            <span>Barber photo goes here</span>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <h2>WHO WE <span>ARE</span></h2>
+          <div class="divider"></div>
+          <p>
+            University No Money Barber was born out of a simple problem — college students
+            need fresh cuts but can't always afford salon prices. We deliver premium barber
+            services at prices made for student budgets.
+          </p>
+          <p>
+            Whether you need a classic fade, a sharp lineup, or a full cut-and-style,
+            our barber has you covered with years of experience and a passion for the craft.
+          </p>
+          <a href="about.html" class="btn btn-outline">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services-preview">
+      <div class="container">
+        <p class="section-sub">What We Offer</p>
+        <h2 class="section-title">POPULAR <span>SERVICES</span></h2>
+        <div class="divider"></div>
+
+        <div class="services-preview-grid">
+          <div class="service-card">
+            <span class="price">$15</span>
+            <span class="name">Classic Fade</span>
+            <span class="desc">Clean taper fade with your choice of length on top.</span>
+          </div>
+          <div class="service-card">
+            <span class="price">$10</span>
+            <span class="name">Lineup / Edge Up</span>
+            <span class="desc">Crisp edge-up along hairline, beard, and temples.</span>
+          </div>
+          <div class="service-card">
+            <span class="price">$25</span>
+            <span class="name">Full Cut + Lineup</span>
+            <span class="desc">Complete haircut package including fade and lineup.</span>
+          </div>
+          <div class="service-card">
+            <span class="price">$20</span>
+            <span class="name">Beard Trim</span>
+            <span class="desc">Shape, clean, and define your beard to perfection.</span>
+          </div>
+        </div>
+
+        <div style="text-align:center;">
+          <a href="services.html" class="btn btn-primary">See All Services &amp; Prices</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery-preview">
+      <div class="container">
+        <p class="section-sub">The Work</p>
+        <h2 class="section-title">RECENT <span>CUTS</span></h2>
+        <div class="divider"></div>
+
+        <div class="gallery-grid-preview">
+          <!-- Replace thumb-placeholder divs with <img> tags when photos are available -->
+          <div class="gallery-thumb"><div class="thumb-placeholder">Featured Cut</div></div>
+          <div class="gallery-thumb"><div class="thumb-placeholder">Fade</div></div>
+          <div class="gallery-thumb"><div class="thumb-placeholder">Lineup</div></div>
+          <div class="gallery-thumb"><div class="thumb-placeholder">Style</div></div>
+          <div class="gallery-thumb"><div class="thumb-placeholder">Beard</div></div>
+        </div>
+
+        <div style="text-align:center; margin-top:2rem;">
+          <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <!-- HTML & CSS validator links as required by course -->
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
+    </nav>
+    <p>&copy; 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
+  </footer>
+
+  <script src="scripts/nav.js"></script>
+
+</body>
+</html>
