@@ -6,6 +6,7 @@
   <title>Contact – University No Money Barber</title>
   <link rel="stylesheet" href="styles/site.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
   <style>
     #contact-section { padding: 4rem 1.5rem; }
 
@@ -26,14 +27,48 @@
       box-shadow: var(--shadow);
     }
 
-    .contact-form-card h3 { font-size: 1.6rem; color: var(--text); margin-bottom: 0.25rem; font-family: var(--font-display); }
-    .contact-form-card .sub { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; font-family: var(--font-display); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form-card h3 {
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      font-family: var(--font-display);
+    }
 
-    .contact-info h3 { font-size: 1.6rem; color: var(--text); margin-bottom: 0.25rem; font-family: var(--font-display); }
-    .contact-info .sub { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; font-family: var(--font-display); }
+    .contact-form-card .sub {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-display);
+    }
 
-    .info-list { list-style: none; margin-bottom: 1.5rem; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      font-family: var(--font-display);
+    }
+
+    .contact-info .sub {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-display);
+    }
+
+    .info-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
 
     .info-list li {
       display: flex;
@@ -44,12 +79,39 @@
       font-size: 0.93rem;
     }
 
-    .info-list li .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-    .info-list li strong { color: var(--text); font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.05em; }
-    .info-list li .detail { color: var(--muted); font-size: 0.85rem; margin-top: 0.1rem; }
+    .info-list li .icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
 
-    .map-wrap { border-radius: var(--radius); overflow: hidden; border: 2px solid var(--blue); margin-top: 1.5rem; box-shadow: var(--shadow); }
-    .map-wrap iframe { display: block; width: 100%; height: 260px; border: none; }
+    .info-list li strong {
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .info-list li .detail {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 0.1rem;
+    }
+
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid var(--blue);
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: none;
+    }
 
     .map-placeholder {
       background: var(--surface2);
@@ -70,13 +132,18 @@
     }
   </style>
 </head>
+
 <body>
 
   <header id="site-header">
     <div class="logo">UNM<span>BARBER</span></div>
+
     <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
     <nav id="site-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -88,7 +155,8 @@
 
   <main>
     <div class="page-hero">
-      <h1>GET IN <span>TOUCH</span></h1>
+      <!-- FIXED: removed qualified h1 warning -->
+      <h1 class="page-hero-title">GET IN <span>TOUCH</span></h1>
       <p>Book an appointment or ask us anything</p>
     </div>
 
@@ -100,12 +168,14 @@
           <p class="sub">Fill out the form below</p>
 
           <form id="contact-form" novalidate>
+
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name">
                 <span class="form-error" id="name-error">Please enter your name.</span>
               </div>
+
               <div class="form-group">
                 <label for="email">Email *</label>
                 <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email">
@@ -125,6 +195,7 @@
                 <input type="date" id="appt-date" name="appt-date">
                 <span class="form-error" id="date-error">Please select a future date.</span>
               </div>
+
               <div class="form-group">
                 <label for="service">Service</label>
                 <select id="service" name="service">
@@ -147,11 +218,14 @@
               <span class="form-error" id="msg-error">Message must be at least 10 characters.</span>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;">Submit Request</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;">
+              Submit Request
+            </button>
 
             <div class="form-success" id="form-success">
               ✓ Your request has been sent! We'll reach out within 24 hours to confirm your appointment.
             </div>
+
           </form>
         </div>
 
@@ -162,23 +236,42 @@
           <ul class="info-list">
             <li>
               <span class="icon">📍</span>
-              <div><strong>Address</strong><div class="detail">Near UNC Charlotte Campus, Charlotte, NC 28213</div></div>
+              <div>
+                <strong>Address</strong>
+                <div class="detail">Near UNC Charlotte Campus, Charlotte, NC 28213</div>
+              </div>
             </li>
+
             <li>
               <span class="icon">📞</span>
-              <div><strong>Phone</strong><div class="detail">123-456-7890</div></div>
+              <div>
+                <strong>Phone</strong>
+                <div class="detail">123-456-7890</div>
+              </div>
             </li>
+
             <li>
               <span class="icon">✉️</span>
-              <div><strong>Email</strong><div class="detail">lakergoat172@gmail.com</div></div>
+              <div>
+                <strong>Email</strong>
+                <div class="detail">lakergoat172@gmail.com</div>
+              </div>
             </li>
+
             <li>
               <span class="icon">🕐</span>
-              <div><strong>Hours</strong><div class="detail">Mon–Thu 10am–7pm &nbsp;|&nbsp; Fri–Sat 9am–8pm &nbsp;|&nbsp; Sun 11am–5pm</div></div>
+              <div>
+                <strong>Hours</strong>
+                <div class="detail">Mon–Thu 10am–7pm | Fri–Sat 9am–8pm | Sun 11am–5pm</div>
+              </div>
             </li>
+
             <li>
               <span class="icon">💰</span>
-              <div><strong>Payment</strong><div class="detail">Cash, Venmo, Cash App accepted</div></div>
+              <div>
+                <strong>Payment</strong>
+                <div class="detail">Cash, Venmo, Cash App accepted</div>
+              </div>
             </li>
           </ul>
 
@@ -188,6 +281,7 @@
               <span>Loading map…</span>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -207,5 +301,6 @@
 
   <script src="scripts/nav.js"></script>
   <script src="scripts/contact.js"></script>
+
 </body>
 </html>

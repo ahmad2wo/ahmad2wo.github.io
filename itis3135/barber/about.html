@@ -7,8 +7,14 @@
   <link rel="stylesheet" href="styles/site.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
-    #about-section { padding: 4rem 1.5rem; }
-    .about-layout { max-width: 1100px; margin: 0 auto; }
+    #about-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .about-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .about-intro-grid {
       display: grid;
@@ -18,7 +24,9 @@
       margin-bottom: 5rem;
     }
 
-    .barber-photo-wrap { position: relative; }
+    .barber-photo-wrap {
+      position: relative;
+    }
 
     .barber-photo-wrap img {
       width: 100%;
@@ -49,7 +57,9 @@
       font-weight: 900;
     }
 
-    .about-bio h2 span { color: var(--blue); }
+    .about-bio h2 span {
+      color: var(--blue);
+    }
 
     .about-bio .role {
       font-size: 0.78rem;
@@ -61,7 +71,10 @@
       font-family: var(--font-display);
     }
 
-    .about-bio p { color: var(--muted); margin-bottom: 1rem; }
+    .about-bio p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
 
     .values-strip {
       background: var(--blue);
@@ -98,3 +111,196 @@
     }
 
     .why-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .why-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--blue-glow);
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .why-card h4 {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .about-cta {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 32px var(--blue-glow);
+    }
+
+    .about-cta h3 {
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      font-weight: 900;
+    }
+
+    .about-cta p {
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="logo">UNM<span>BARBER</span></div>
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1 class="page-hero-title">ABOUT <span>US</span></h1>
+      <p>The story behind the scissors</p>
+    </div>
+
+    <section id="about-section">
+      <div class="about-layout">
+
+        <div class="about-intro-grid">
+          <div class="barber-photo-wrap">
+            <img src="images/full-groom.png" alt="Barber at work">
+          </div>
+
+          <div class="about-bio">
+            <p class="role">Head Barber &amp; Owner</p>
+            <h2>MEET THE <span>BARBER</span></h2>
+            <div class="divider"></div>
+            <p>University No Money Barber was founded on one idea: every student deserves a clean, professional haircut regardless of budget. As someone who grew up around barbershop culture, the owner has been cutting hair for over five years, blending classic technique with modern style.</p>
+            <p>Based near UNC Charlotte, the shop quickly became a favorite for students who wanted quality work at prices that make sense on a college budget. Word of mouth and a growing client base proved the concept works.</p>
+            <p>Whether it is your first visit or your fiftieth, every client gets the same attention to detail and the same level of care. That is the promise.</p>
+            <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
+          </div>
+        </div>
+
+        <div class="values-strip">
+          <div class="value-item">
+            <h3>5+</h3>
+            <p>Years of Experience</p>
+          </div>
+          <div class="value-item">
+            <h3>500+</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="value-item">
+            <h3>$15</h3>
+            <p>Starting Price</p>
+          </div>
+          <div class="value-item">
+            <h3>7</h3>
+            <p>Days a Week</p>
+          </div>
+        </div>
+
+        <p class="section-sub">Why Clients Keep Coming Back</p>
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">WHY CHOOSE <span>US</span></h2>
+        <div class="divider"></div>
+
+        <div class="why-grid" style="margin-top: 2rem;">
+          <div class="why-card">
+            <span class="why-icon">💰</span>
+            <h4>Student Pricing</h4>
+            <p>Prices designed with college budgets in mind. Quality cuts should not cost a month’s rent.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-icon">✂️</span>
+            <h4>Skilled &amp; Precise</h4>
+            <p>Years of experience in fades, lineups, and full styling. Every cut is done with care and precision.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-icon">📍</span>
+            <h4>Conveniently Located</h4>
+            <p>Right near campus so you can get a fresh cut between classes or before a big event.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-icon">📅</span>
+            <h4>Flexible Hours</h4>
+            <p>Open 7 days a week including evenings. Walk-ins welcome and appointments get priority.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-icon">⭐</span>
+            <h4>Word of Mouth Reputation</h4>
+            <p>Built entirely on referrals from satisfied clients. No gimmicks, just consistently great work.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-icon">💬</span>
+            <h4>Personal Service</h4>
+            <p>One-on-one attention with no rushed appointments. You will always leave looking and feeling your best.</p>
+          </div>
+        </div>
+
+        <div class="about-cta" style="margin-top: 3rem;">
+          <h3>READY FOR A FRESH CUT?</h3>
+          <p>Book your appointment today — fast, easy, no stress.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <a href="services.html" class="btn btn-outline">View Services</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+    <p>© 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
+  </footer>
+
+  <script src="scripts/nav.js"></script>
+
+</body>
+</html>
