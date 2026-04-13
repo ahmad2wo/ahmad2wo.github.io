@@ -5,8 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>University No Money Barber – Home</title>
 
-  <!-- IMPORTANT: correct path -->
+  <!-- FIXED PATH -->
   <link rel="stylesheet" href="../styles/site.css">
+
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <style>
+    #hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 60%, #90caf9 100%);
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .hero-text p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    #stats-strip {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+
+    #gallery-preview {
+      padding: 5rem 1.5rem;
+    }
+
+    .gallery-grid-preview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +82,9 @@
   <div class="logo">UNM<span>BARBER</span></div>
 
   <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 
   <nav id="site-nav">
@@ -35,17 +104,14 @@
     <div class="hero-text">
       <p>Serving UNCC & Surrounding Area</p>
 
-      <!-- FIXED -->
-      <h1 class="hero-title">
-        FRESH CUTS.<br><em>REAL PRICES.</em>
-      </h1>
+      <h1>FRESH CUTS.<br><em>REAL PRICES.</em></h1>
 
       <p>
         University No Money Barber — the go-to spot for college students
         who want clean, professional haircuts without breaking the bank.
       </p>
 
-      <a href="contact.html" class="btn btn-primary">Book Now</a>
+      <a href="contact.html">Book Now</a>
     </div>
 
     <div class="hero-image">
@@ -57,22 +123,10 @@
 
 <section id="stats-strip">
   <div class="stats-inner">
-    <div>
-      <h3>$15+</h3>
-      <p>Starting Price</p>
-    </div>
-    <div>
-      <h3>500+</h3>
-      <p>Happy Clients</p>
-    </div>
-    <div>
-      <h3>5★</h3>
-      <p>Rating</p>
-    </div>
-    <div>
-      <h3>7 Days</h3>
-      <p>Open</p>
-    </div>
+    <div><h3>$15+</h3><p>Starting Price</p></div>
+    <div><h3>500+</h3><p>Happy Clients</p></div>
+    <div><h3>5★</h3><p>Rating</p></div>
+    <div><h3>7 Days</h3><p>Open</p></div>
   </div>
 </section>
 
@@ -81,21 +135,11 @@
   <h2>Recent Cuts</h2>
 
   <div class="gallery-grid-preview">
-    <div class="gallery-thumb">
-      <img src="images/low-fade.png" alt="Low Fade">
-    </div>
-    <div class="gallery-thumb">
-      <img src="images/sharp-lineup.png" alt="Sharp Lineup">
-    </div>
-    <div class="gallery-thumb">
-      <img src="images/beard-cut.png" alt="Beard Cut">
-    </div>
-    <div class="gallery-thumb">
-      <img src="images/skin-fade.png" alt="Skin Fade">
-    </div>
-    <div class="gallery-thumb">
-      <img src="images/mid-fade.png" alt="Mid Fade">
-    </div>
+    <div class="gallery-thumb"><img src="images/low-fade.png" alt="Low Fade"></div>
+    <div class="gallery-thumb"><img src="images/sharp-lineup.png" alt="Sharp Lineup"></div>
+    <div class="gallery-thumb"><img src="images/beard-cut.png" alt="Beard Cut"></div>
+    <div class="gallery-thumb"><img src="images/skin-fade.png" alt="Skin Fade"></div>
+    <div class="gallery-thumb"><img src="images/mid-fade.png" alt="Mid Fade"></div>
   </div>
 
 </section>
@@ -114,7 +158,7 @@
   <p>© 2026 University No Money Barber. Site designed by Ahmad Idris.</p>
 </footer>
 
-<!-- IMPORTANT: correct path -->
+<!-- FIXED PATH -->
 <script src="../scripts/nav.js"></script>
 
 </body>
