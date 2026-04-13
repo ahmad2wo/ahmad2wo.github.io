@@ -5,147 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>University No Money Barber – Home</title>
   <link rel="stylesheet" href="styles/site.css">
-  <!-- Page-specific hero styles -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
     #hero {
-      position: relative;
-      min-height: 92vh;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 60%, #90caf9 100%);
+      min-height: 90vh;
       display: flex;
       align-items: center;
-      background: radial-gradient(ellipse at 20% 50%, rgba(198,40,40,0.18) 0%, transparent 60%),
-                  linear-gradient(160deg, #1a0000 0%, #0d0d0d 50%);
-      overflow: hidden;
       padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    #hero::before {
+    #hero::after {
       content: '';
       position: absolute;
-      top: -80px; right: -80px;
-      width: 500px; height: 500px;
-      background: conic-gradient(from 45deg, var(--red-glow), transparent 30%);
+      bottom: -60px; right: -60px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.06);
       border-radius: 50%;
       pointer-events: none;
     }
 
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--red);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    #hero h1 {
-      font-size: clamp(3.5rem, 8vw, 6.5rem);
-      color: var(--white);
-      line-height: 0.95;
-      margin-bottom: 1.25rem;
-    }
-
-    #hero h1 em {
-      font-style: normal;
-      color: var(--red);
-    }
-
-    .hero-tagline {
-      font-size: 1.15rem;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 520px;
-      margin-bottom: 2.25rem;
-      line-height: 1.7;
-    }
-
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    #feature-strip {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 1.5rem;
-    }
-
-    .feature-strip-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .feature-item h3 {
-      font-size: 2.4rem;
-      color: var(--red);
-      margin-bottom: 0.25rem;
-    }
-
-    .feature-item p {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    #about-strip {
-      padding: 5rem 1.5rem;
-    }
-
-    .about-grid {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
-    }
-
-    .about-img-box {
+      width: 100%;
       position: relative;
+      z-index: 1;
     }
 
-    .about-img-box img {
-      width: 100%;
+    .hero-text .eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.8);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text h1 em { font-style: normal; color: #bbdefb; }
+
+    .hero-text p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
       border-radius: var(--radius);
-      border: 2px solid var(--red);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: inline-block;
     }
 
-    .img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: var(--surface2);
-      border: 2px solid var(--red);
+    .btn-white:hover { background: var(--blue-pale); color: var(--blue); transform: translateY(-2px); }
+
+    .btn-white-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.7);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
       border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-      gap: 0.5rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: inline-block;
     }
 
-    .img-placeholder svg { width: 40px; height: 40px; opacity: 0.4; }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.15); color: var(--white); transform: translateY(-2px); }
 
-    .about-text h2 { font-size: 2.8rem; color: var(--white); margin-bottom: 0.5rem; }
-    .about-text h2 span { color: var(--red); }
+    .hero-image { position: relative; }
 
-    .about-text p { color: var(--muted); margin-bottom: 1.25rem; }
-
-    #services-preview {
-      background: var(--surface);
-      padding: 5rem 1.5rem;
+    .hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
     }
 
-    #services-preview .container { max-width: 1100px; margin: 0 auto; }
+    .hero-badge {
+      position: absolute;
+      bottom: -20px; left: -20px;
+      background: var(--white);
+      color: var(--blue);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      line-height: 1.1;
+      min-width: 120px;
+    }
+
+    .hero-badge span { font-size: 0.7rem; font-weight: 600; color: var(--muted); display: block; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    #stats-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item h3 { font-size: 2.2rem; color: var(--blue); font-weight: 900; margin-bottom: 0.25rem; }
+    .stat-item p { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
+
+    #services-preview { padding: 5rem 1.5rem; background: var(--bg); }
 
     .services-preview-grid {
       display: grid;
@@ -155,100 +160,56 @@
     }
 
     .service-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1.5px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      transition: border-color var(--transition), transform var(--transition);
+      gap: 0.4rem;
+      box-shadow: var(--shadow);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
-    .service-card:hover {
-      border-color: var(--red);
-      transform: translateY(-3px);
-    }
+    .service-card:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 8px 32px var(--blue-glow); }
+    .service-card .price { font-family: var(--font-display); font-size: 2rem; color: var(--blue); font-weight: 900; }
+    .service-card .name { font-weight: 700; font-size: 1rem; color: var(--text); font-family: var(--font-display); }
+    .service-card .desc { font-size: 0.88rem; color: var(--muted); }
 
-    .service-card .price {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      color: var(--red);
-    }
-
-    .service-card .name {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--white);
-    }
-
-    .service-card .desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    /* ---- Gallery preview ---- */
-    #gallery-preview {
-      padding: 5rem 1.5rem;
-    }
-
-    #gallery-preview .container { max-width: 1100px; margin: 0 auto; }
+    #gallery-preview { padding: 5rem 1.5rem; background: var(--surface2); }
 
     .gallery-grid-preview {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 160px);
+      grid-template-rows: repeat(2, 200px);
       gap: 0.75rem;
-    }
-
-    .gallery-thumb {
-      background: var(--surface2);
-      border-radius: 6px;
+      border-radius: var(--radius);
       overflow: hidden;
-      position: relative;
     }
 
-    .gallery-thumb:first-child {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-
-    .gallery-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-thumb .thumb-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+    .gallery-thumb { overflow: hidden; position: relative; background: var(--border); }
+    .gallery-thumb:first-child { grid-column: span 2; grid-row: span 2; }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery-thumb:hover img { transform: scale(1.05); }
 
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-image { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid-preview { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
       .gallery-thumb:first-child { grid-column: span 1; grid-row: span 1; }
+      .gallery-thumb img { height: 160px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
   <header id="site-header">
-    <div class="logo">UNM<span>B</span>ARBER</div>
-
-    <!-- Mobile toggle button -->
+    <div class="logo">UNM<span>BARBER</span></div>
     <button id="nav-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
-
     <nav id="site-nav">
-      <!-- active class highlights current page -->
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
@@ -261,70 +222,28 @@
 
     <section id="hero">
       <div class="hero-inner">
-        <p class="hero-eyebrow">📍 Serving UNCC &amp; Surrounding Area</p>
-        <h1>
-          FRESH<br>
-          <em>CUTS.</em><br>
-          REAL<br>PRICES.
-        </h1>
-        <p class="hero-tagline">
-          University No Money Barber — the go-to spot for college students
-          who want clean, professional haircuts without breaking the bank.
-        </p>
-        <div class="hero-cta">
-          <a href="contact.html" class="btn btn-primary">Book Now</a>
-          <a href="services.html" class="btn btn-outline">View Services</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="feature-strip">
-      <div class="feature-strip-inner">
-        <div class="feature-item">
-          <h3>$15+</h3>
-          <p>Starting Price</p>
-        </div>
-        <div class="feature-item">
-          <h3>500+</h3>
-          <p>Happy Clients</p>
-        </div>
-        <div class="feature-item">
-          <h3>5★</h3>
-          <p>Average Rating</p>
-        </div>
-        <div class="feature-item">
-          <h3>7 Days</h3>
-          <p>A Week</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="about-strip">
-      <div class="about-grid">
-
-        <div class="about-img-box">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-            </svg>
-            <span>Barber photo goes here</span>
+        <div class="hero-text">
+          <p class="eyebrow">📍 Serving UNCC &amp; Surrounding Area</p>
+          <h1>FRESH CUTS.<br><em>REAL PRICES.</em></h1>
+          <p>University No Money Barber — the go-to spot for college students who want clean, professional haircuts without breaking the bank.</p>
+          <div class="hero-cta">
+            <a href="contact.html" class="btn-white">Book Now</a>
+            <a href="services.html" class="btn-white-outline">View Services</a>
           </div>
         </div>
-
-        <div class="about-text">
-          <h2>WHO WE <span>ARE</span></h2>
-          <div class="divider"></div>
-          <p>
-            University No Money Barber was born out of a simple problem — college students
-            need fresh cuts but can't always afford salon prices. We deliver premium barber
-            services at prices made for student budgets.
-          </p>
-          <p>
-            Whether you need a classic fade, a sharp lineup, or a full cut-and-style,
-            our barber has you covered with years of experience and a passion for the craft.
-          </p>
-          <a href="about.html" class="btn btn-outline">Our Story</a>
+        <div class="hero-image">
+          <img src="images/low-fade.png" alt="Fresh low fade haircut">
+          <div class="hero-badge">$15<span>Starting Price</span></div>
         </div>
+      </div>
+    </section>
+
+    <section id="stats-strip">
+      <div class="stats-inner">
+        <div class="stat-item"><h3>$15+</h3><p>Starting Price</p></div>
+        <div class="stat-item"><h3>500+</h3><p>Happy Clients</p></div>
+        <div class="stat-item"><h3>5★</h3><p>Average Rating</p></div>
+        <div class="stat-item"><h3>7 Days</h3><p>A Week</p></div>
       </div>
     </section>
 
@@ -333,7 +252,6 @@
         <p class="section-sub">What We Offer</p>
         <h2 class="section-title">POPULAR <span>SERVICES</span></h2>
         <div class="divider"></div>
-
         <div class="services-preview-grid">
           <div class="service-card">
             <span class="price">$15</span>
@@ -356,7 +274,6 @@
             <span class="desc">Shape, clean, and define your beard to perfection.</span>
           </div>
         </div>
-
         <div style="text-align:center;">
           <a href="services.html" class="btn btn-primary">See All Services &amp; Prices</a>
         </div>
@@ -368,16 +285,13 @@
         <p class="section-sub">The Work</p>
         <h2 class="section-title">RECENT <span>CUTS</span></h2>
         <div class="divider"></div>
-
         <div class="gallery-grid-preview">
-          <!-- Replace thumb-placeholder divs with <img> tags when photos are available -->
-          <div class="gallery-thumb"><div class="thumb-placeholder">Featured Cut</div></div>
-          <div class="gallery-thumb"><div class="thumb-placeholder">Fade</div></div>
-          <div class="gallery-thumb"><div class="thumb-placeholder">Lineup</div></div>
-          <div class="gallery-thumb"><div class="thumb-placeholder">Style</div></div>
-          <div class="gallery-thumb"><div class="thumb-placeholder">Beard</div></div>
+          <div class="gallery-thumb"><img src="images/low-fade.png" alt="Low Fade"></div>
+          <div class="gallery-thumb"><img src="images/sharp-lineup.png" alt="Sharp Lineup"></div>
+          <div class="gallery-thumb"><img src="images/beard-cut.png" alt="Beard Cut"></div>
+          <div class="gallery-thumb"><img src="images/skin-fade.png" alt="Skin Fade"></div>
+          <div class="gallery-thumb"><img src="images/mid-fade.png" alt="Mid Fade"></div>
         </div>
-
         <div style="text-align:center; margin-top:2rem;">
           <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
         </div>
@@ -393,7 +307,6 @@
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
-      <!-- HTML & CSS validator links as required by course -->
       <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
     </nav>

@@ -5,59 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services – University No Money Barber</title>
   <link rel="stylesheet" href="styles/site.css">
-  <!-- jQuery UI CSS for accordion widget -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
     .ui-accordion .ui-accordion-header {
-      background: var(--surface2) !important;
-      border: 1px solid var(--border) !important;
+      background: var(--white) !important;
+      border: 1.5px solid var(--border) !important;
       border-radius: var(--radius) !important;
-      color: var(--white) !important;
+      color: var(--text) !important;
       font-family: var(--font-display) !important;
-      font-size: 1.2rem !important;
-      letter-spacing: 0.08em;
+      font-size: 1.1rem !important;
+      letter-spacing: 0.04em;
       padding: 1rem 1.25rem !important;
-      margin-bottom: 4px !important;
+      margin-bottom: 6px !important;
+      box-shadow: var(--shadow) !important;
       transition: background var(--transition) !important;
     }
 
     .ui-accordion .ui-accordion-header:hover,
     .ui-accordion .ui-accordion-header-active {
-      background: rgba(198,40,40,0.18) !important;
-      border-color: var(--red) !important;
-      color: var(--red) !important;
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+      color: var(--white) !important;
     }
 
     .ui-accordion .ui-accordion-content {
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
+      background: var(--surface2) !important;
+      border: 1.5px solid var(--border) !important;
       border-top: none !important;
       border-radius: 0 0 var(--radius) var(--radius) !important;
       padding: 1.25rem !important;
       margin-bottom: 8px !important;
     }
 
-    .ui-accordion .ui-accordion-header .ui-icon { filter: invert(1) opacity(0.5); }
+    .ui-accordion .ui-accordion-header .ui-icon { filter: none; }
+    .ui-accordion .ui-accordion-header-active .ui-icon { filter: invert(1); }
 
-    .services-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
+    .services-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 
     .services-table th {
       text-align: left;
       text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.15em;
       color: var(--muted);
       padding: 0.5rem 0.75rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      font-family: var(--font-display);
     }
 
     .services-table td {
       padding: 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid var(--border);
       color: var(--text);
       vertical-align: top;
     }
@@ -66,21 +65,15 @@
 
     .services-table .price-cell {
       font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--red);
+      font-size: 1.3rem;
+      color: var(--blue);
+      font-weight: 900;
       white-space: nowrap;
     }
 
-    .services-table .note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: block;
-      margin-top: 0.2rem;
-    }
+    .services-table .note { font-size: 0.8rem; color: var(--muted); display: block; margin-top: 0.2rem; }
 
-    #services-wrap {
-      padding: 4rem 1.5rem;
-    }
+    #services-wrap { padding: 4rem 1.5rem; }
 
     .services-layout {
       max-width: 1100px;
@@ -92,42 +85,44 @@
     }
 
     .services-sidebar .sidebar-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1.5px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
     }
 
     .services-sidebar h4 {
-      font-size: 1.3rem;
-      color: var(--white);
+      font-size: 1.1rem;
+      color: var(--text);
       margin-bottom: 1rem;
-      border-bottom: 2px solid var(--red);
+      border-bottom: 2.5px solid var(--blue);
       padding-bottom: 0.4rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
     }
 
     .hours-list { list-style: none; }
+
     .hours-list li {
       display: flex;
       justify-content: space-between;
-      padding: 0.4rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.9rem;
       color: var(--muted);
     }
 
-    .hours-list li span:last-child { color: var(--text); }
+    .hours-list li span:last-child { color: var(--text); font-weight: 600; }
 
-    @media (max-width: 768px) {
-      .services-layout { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .services-layout { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
   <header id="site-header">
-    <div class="logo">UNM<span>B</span>ARBER</div>
+    <div class="logo">UNM<span>BARBER</span></div>
     <button id="nav-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
@@ -158,9 +153,7 @@
             <h3>✂ Haircuts</h3>
             <div>
               <table class="services-table">
-                <thead>
-                  <tr><th>Service</th><th>Description</th><th>Price</th></tr>
-                </thead>
+                <thead><tr><th>Service</th><th>Description</th><th>Price</th></tr></thead>
                 <tbody>
                   <tr>
                     <td>Classic Fade</td>
@@ -189,9 +182,7 @@
             <h3>〰 Lineup &amp; Beard</h3>
             <div>
               <table class="services-table">
-                <thead>
-                  <tr><th>Service</th><th>Description</th><th>Price</th></tr>
-                </thead>
+                <thead><tr><th>Service</th><th>Description</th><th>Price</th></tr></thead>
                 <tbody>
                   <tr>
                     <td>Lineup / Edge Up</td>
@@ -215,9 +206,7 @@
             <h3>🎯 Combo Packages</h3>
             <div>
               <table class="services-table">
-                <thead>
-                  <tr><th>Package</th><th>Includes</th><th>Price</th></tr>
-                </thead>
+                <thead><tr><th>Package</th><th>Includes</th><th>Price</th></tr></thead>
                 <tbody>
                   <tr>
                     <td>Student Special</td>
@@ -236,9 +225,7 @@
             <h3>✨ Add-Ons</h3>
             <div>
               <table class="services-table">
-                <thead>
-                  <tr><th>Add-On</th><th>Description</th><th>Price</th></tr>
-                </thead>
+                <thead><tr><th>Add-On</th><th>Description</th><th>Price</th></tr></thead>
                 <tbody>
                   <tr>
                     <td>Shampoo &amp; Wash</td>
@@ -279,12 +266,11 @@
               <li><span>Sunday</span><span>11am – 5pm</span></li>
             </ul>
           </div>
-
           <div class="sidebar-card">
             <h4>QUICK INFO</h4>
             <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.75rem;">Walk-ins welcome. Appointments preferred.</p>
             <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Cash, Venmo, Cash App accepted.</p>
-            <a href="contact.html" class="btn btn-outline" style="width:100%; text-align:center; display:block;">Contact Us</a>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; display:block;">Contact Us</a>
           </div>
         </aside>
 
@@ -311,11 +297,7 @@
   <script src="scripts/nav.js"></script>
   <script>
     $(function () {
-      $('#services-accordion').accordion({
-        collapsible: true,
-        heightStyle: 'content',
-        animate: 250
-      });
+      $('#services-accordion').accordion({ collapsible: true, heightStyle: 'content', animate: 250 });
     });
   </script>
 

@@ -5,37 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery – University No Money Barber</title>
   <link rel="stylesheet" href="styles/site.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
     #gallery-section { padding: 4rem 1.5rem; }
-
     .gallery-container { max-width: 1100px; margin: 0 auto; }
 
-    .gallery-filter {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
+    .gallery-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
 
     .filter-btn {
-      padding: 0.4rem 1rem;
-      font-size: 0.8rem;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-weight: 600;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: transparent;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
       color: var(--muted);
       cursor: pointer;
       transition: all var(--transition);
-      font-family: var(--font-body);
+      font-family: var(--font-display);
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--red);
-      border-color: var(--red);
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
       color: var(--white);
     }
 
@@ -51,62 +45,42 @@
       border-radius: var(--radius);
       cursor: pointer;
       background: var(--surface2);
-      border: 1px solid var(--border);
-      transition: border-color var(--transition), transform var(--transition);
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
     .gallery-item:nth-child(4n) { grid-column: span 2; }
 
-    .gallery-item:hover {
-      border-color: var(--red);
-      transform: translateY(-2px);
-    }
+    .gallery-item:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 32px var(--blue-glow); }
 
-    .gallery-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
+    .gallery-item img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .gallery-item:nth-child(4n) img { height: 240px; }
     .gallery-item:hover img { transform: scale(1.04); }
 
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(198,40,40,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-    .gallery-overlay svg { width: 36px; height: 36px; color: white; }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 220px;
+      background: rgba(21,101,192,0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity var(--transition);
       gap: 0.5rem;
-      background: var(--surface2);
     }
 
-    .gallery-placeholder-label {
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay svg { width: 32px; height: 32px; color: white; }
+
+    .gallery-overlay span {
+      color: white;
       font-family: var(--font-display);
       font-size: 0.85rem;
-      color: var(--muted);
       letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     #lightbox {
@@ -114,7 +88,7 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0,0,0,0.9);
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -124,73 +98,58 @@
 
     #lightbox img {
       max-width: 88vw;
-      max-height: 78vh;
+      max-height: 75vh;
       border-radius: var(--radius);
-      border: 2px solid var(--red);
+      border: 3px solid var(--blue);
       object-fit: contain;
-    }
-
-    #lightbox-placeholder {
-      width: 600px;
-      max-width: 88vw;
-      height: 420px;
-      background: var(--surface2);
-      border: 2px solid var(--red);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
+      box-shadow: 0 0 60px rgba(21,101,192,0.4);
     }
 
     .lightbox-caption {
-      margin-top: 0.75rem;
-      color: var(--muted);
-      font-size: 0.88rem;
-      letter-spacing: 0.1em;
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      font-family: var(--font-display);
     }
 
-    .lightbox-controls {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      align-items: center;
-    }
+    .lightbox-controls { display: flex; gap: 1rem; margin-top: 1rem; align-items: center; }
 
     .lb-btn {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 1.25rem;
-      border-radius: 4px;
+      background: var(--white);
+      border: none;
+      color: var(--blue);
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
       cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       transition: all var(--transition);
     }
 
-    .lb-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+    .lb-btn:hover { background: var(--blue); color: var(--white); }
 
     #lightbox-close {
       position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      background: none;
+      top: 1.25rem; right: 1.5rem;
+      background: var(--white);
       border: none;
-      color: var(--muted);
-      font-size: 2rem;
+      color: var(--blue);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      font-size: 1.3rem;
       cursor: pointer;
-      line-height: 1;
-      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
     }
 
-    #lightbox-close:hover { color: var(--red); }
-
-    #lightbox-counter { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.1em; }
+    #lightbox-close:hover { background: var(--blue); color: var(--white); }
+    #lightbox-counter { font-size: 0.82rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; font-family: var(--font-display); }
 
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -201,7 +160,7 @@
 <body>
 
   <header id="site-header">
-    <div class="logo">UNM<span>B</span>ARBER</div>
+    <div class="logo">UNM<span>BARBER</span></div>
     <button id="nav-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
@@ -234,66 +193,75 @@
 
         <div class="gallery-grid" id="gallery-grid">
 
-          <div class="gallery-item" data-category="fade" data-caption="Low Fade – Side View" data-index="0">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Low Fade</span></div>
+          <div class="gallery-item" data-category="fade" data-caption="Low Fade">
+            <img src="images/low-fade.png" alt="Low Fade">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Low Fade</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="lineup" data-caption="Sharp Lineup – Front" data-index="1">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Sharp Lineup</span></div>
+          <div class="gallery-item" data-category="lineup" data-caption="Sharp Lineup">
+            <img src="images/sharp-lineup.png" alt="Sharp Lineup">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Sharp Lineup</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="beard" data-caption="Beard Shape Up" data-index="2">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Beard Trim</span></div>
+          <div class="gallery-item" data-category="beard" data-caption="Beard Cut">
+            <img src="images/beard-cut.png" alt="Beard Cut">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Beard Cut</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="full" data-caption="Full Cut – Student Special" data-index="3">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Student Special</span></div>
+          <div class="gallery-item" data-category="full" data-caption="Special Haircut">
+            <img src="images/special-haircut.png" alt="Special Haircut">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Special Haircut</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="fade" data-caption="Skin Fade – Back View" data-index="4">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Skin Fade</span></div>
+          <div class="gallery-item" data-category="fade" data-caption="Skin Fade">
+            <img src="images/skin-fade.png" alt="Skin Fade">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Skin Fade</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="lineup" data-caption="Temple Taper" data-index="5">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Temple Taper</span></div>
+          <div class="gallery-item" data-category="lineup" data-caption="Temple Taper">
+            <img src="images/temple-taper.png" alt="Temple Taper">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Temple Taper</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="beard" data-caption="Full Beard Shaping" data-index="6">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Full Beard</span></div>
+          <div class="gallery-item" data-category="beard" data-caption="Full Beard">
+            <img src="images/full-beard.png" alt="Full Beard">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Full Beard</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="full" data-caption="Full Grooming Package" data-index="7">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Full Groom</span></div>
+          <div class="gallery-item" data-category="full" data-caption="Full Groom">
+            <img src="images/full-groom.png" alt="Full Groom">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Full Groom</span>
             </div>
           </div>
 
-          <div class="gallery-item" data-category="fade" data-caption="Mid Fade – Side Profile" data-index="8">
-            <div class="gallery-placeholder"><span>📷</span><span class="gallery-placeholder-label">Mid Fade</span></div>
+          <div class="gallery-item" data-category="fade" data-caption="Mid Fade">
+            <img src="images/mid-fade.png" alt="Mid Fade">
             <div class="gallery-overlay">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Mid Fade</span>
             </div>
           </div>
 
@@ -305,8 +273,8 @@
 
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
     <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
-    <div id="lightbox-placeholder">No image available</div>
-    <div class="lightbox-caption" id="lightbox-caption">Caption here</div>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
     <div class="lightbox-controls">
       <button class="lb-btn" id="lb-prev">&#8592; Prev</button>
       <span id="lightbox-counter">1 / 9</span>
