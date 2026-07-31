@@ -1,3 +1,14 @@
-# ahmad2wo.github.io
+# Ahmad Idris Portfolio
 
-This is Ahmad Idris and I have set up my ITIS 3135 Github repository at 4:36.
+Personal portfolio website showcasing my software engineering, cybersecurity, and web development projects.
+
+## Technologies
+- HTML
+- CSS
+- JavaScript
+
+## Featured Projects
+- Gridfall
+- IDRISSE Parfums
+- Digital Forensics
+- ReturnRunner
